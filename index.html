@@ -145,6 +145,23 @@ h1{
 }
 h1 .slash{color:rgba(255,255,255,.42); font-weight:500}
 .hero .dek{margin:22px 0 0; font-size:clamp(14.5px,1.5vw,16.5px); line-height:1.7; color:rgba(255,255,255,.72); max-width:52ch}
+.hero-cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:28px}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  height:48px; padding:0 24px; border-radius:999px;
+  font-family:Montserrat,sans-serif; font-size:13.5px; font-weight:600; letter-spacing:.01em;
+  text-decoration:none; border:1px solid transparent; cursor:pointer;
+  transition:background-color .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn:focus-visible{outline:2px solid #fff; outline-offset:3px}
+.btn-light{background:#fff; color:var(--brand)}
+.btn-light:hover{background:rgba(255,255,255,.9)}
+.btn svg{width:16px; height:16px; flex:0 0 auto}
+.btn .size{
+  font-family:"Geist Mono",monospace; font-size:11px; font-weight:500;
+  opacity:.62; letter-spacing:.02em;
+}
 .hero-side{align-self:end; padding-bottom:4px}
 .hero-side .blk{border-top:1px solid rgba(255,255,255,.14); padding:16px 0 0; margin-top:18px}
 .hero-side .blk:first-child{border-top:0; margin-top:0; padding-top:0}
@@ -369,6 +386,13 @@ a:focus-visible{outline:2px solid var(--brand-40); outline-offset:2px}
         <p class="eyebrow on-dark">Ingeniería · Automatización · IA</p>
         <h1><span class="slash">/</span>Comandos slash de Claude Code</h1>
         <p class="dek">Inventario completo extraído del binario instalado, no de la documentación pública: qué hace cada comando, cómo se escribe, un ejemplo real y cuándo conviene usarlo. Incluye los que <code>/help</code> te oculta.</p>
+        <div class="hero-cta">
+          <a class="btn btn-light" href="CHEATSHEET.md" download="CHEATSHEET.md">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 20h16"/></svg>
+            Descargar en Markdown
+            <span class="size">43&nbsp;KB</span>
+          </a>
+        </div>
       </div>
       <div class="hero-side">
         <div class="blk">
