@@ -1,0 +1,6 @@
+.DS_Store
+*.log
+
+# Manual de marca interno: no se publica en un repositorio público.
+# El SVG del logotipo sí se versiona (logo-oa2p.svg).
+logo-brand.png

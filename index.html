@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comandos slash de Claude Code</title>
+<meta name="description" content="Los 132 comandos slash de Claude Code extraídos del binario 2.1.247: qué hace cada uno, ejemplos reales y cuándo conviene usarlo. Con buscador en vivo.">
+<meta name="color-scheme" content="light dark">
+<meta name="author" content="OA2P Solutions">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Comandos slash de Claude Code">
+<meta property="og:description" content="Inventario completo de comandos slash de Claude Code, con ejemplos y buscador en vivo.">
+<meta property="og:locale" content="es_LA">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%22-0.6%20-0.2%2022.1%2024.9%22%20aria-hidden%3D%22true%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20transform%3D%22translate%28-5.0631132%2C-80.023416%29%22%3E%3Cg%20id%3D%22g20-4%22%20transform%3D%22matrix%280.254887%2C0%2C0%2C0.254887%2C-24.0535%2C72.406391%29%22%20style%3D%22fill%3A%230a1f44%22%3E%3Cpath%20id%3D%22rect9-7-8%22%20style%3D%22fill%3A%230a1f44%3Bfill-opacity%3A1%3Bstroke%3Anone%3Bstroke-width%3A1%3Bstroke-linecap%3Around%3Bstroke-linejoin%3Around%3Bstroke-dasharray%3Anone%3Bstroke-opacity%3A1%3Bpaint-order%3Astroke%20fill%20markers%22%20d%3D%22m%20154.92617%2C77.025871%20-6.00686%2C3.50418%20v%206.99957%20l%206.00686%2C-3.50366%2011.99979%2C6.99957%20v%200.26304%20h%20-0.0274%20v%2036.484589%20l%206.0017%2C-3.47989%20V%20113.9399%20l%200.0258%2C-0.015%20v%20-5.39915%20-13.386779%20-7.61297%20z%22%20%2F%3E%3Cpath%20id%3D%22path7-4-1-2-5-2-5-4-3%22%20style%3D%22fill%3A%230a1f44%3Bfill-opacity%3A1%3Bstroke%3Anone%3Bstroke-width%3A1%3Bstroke-linecap%3Around%3Bstroke-linejoin%3Around%3Bstroke-dasharray%3Anone%3Bstroke-opacity%3A1%3Bpaint-order%3Astroke%20fill%20markers%22%20d%3D%22m%20154.91576%2C56.043041%20-17.99993%2C10.50013%20v%205.41776%20l%20-0.002%2C-0.001%20v%207.00009%20l%200.002%2C0.001%20v%208.5819%20l%200.002%2C10e-4%20v%2013.952629%20l%20-4.68447%2C2.73265%20-12.0003%2C-7.000089%20v%20-14.00018%20l%2010.681%2C-6.23011%20v%20-7.00009%20l%20-16.68064%2C9.73068%20v%2020.999749%20l%2017.99994%2C10.50013%2010.64999%2C-6.21254%20V%2077.860791%20h%200.0326%20v%20-3.4432%20h%200.004%20v%20-4.377%20l%2011.99668%2C-6.9975%206.0017%2C3.50107%20v%20-7.00009%20z%22%20%2F%3E%3Cpath%20id%3D%22path7-4-1-2-01-6-9%22%20style%3D%22fill%3A%230a1f44%3Bfill-opacity%3A1%3Bstroke%3Anone%3Bstroke-width%3A1%3Bstroke-linecap%3Around%3Bstroke-linejoin%3Around%3Bstroke-dasharray%3Anone%3Bstroke-opacity%3A1%3Bpaint-order%3Astroke%20fill%20markers%22%20d%3D%22m%20154.90956%2C29.88391%20-17.99994%2C10.500131%20v%2019.23294%20l%205.99964%2C-3.51658%20v%20-12.21683%20l%2012.0003%2C-6.999571%2011.99978%2C6.999571%20v%204.11345%20h%20-10e-4%20v%209.88725%20l%20-0.009%2C0.005%20v%207.00008%20l%200.009%2C-0.005%20v%2012.14758%20l%206.00118%2C3.51761%20v%20-19.16575%20-13.38678%20-7.61298%20z%22%20%2F%3E%3Cpath%20id%3D%22path7-4-6-7-0-0%22%20style%3D%22fill%3A%230a1f44%3Bfill-opacity%3A1%3Bstroke%3Anone%3Bstroke-width%3A1%3Bstroke-linecap%3Around%3Bstroke-linejoin%3Around%3Bstroke-dasharray%3Anone%3Bstroke-opacity%3A1%3Bpaint-order%3Astroke%20fill%20markers%22%20d%3D%22m%20178.92313%2C70.052921%20v%207.00008%20l%2010.62726%2C6.19911%20v%2014.00018%20l%20-7.62744%2C4.449339%20v%207.00009%20l%2013.62759%2C-7.94939%20V%2079.752581%20Z%22%20%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
+<style>
+/* ==========================================================================
+   Sistema gráfico OA2P Solutions — tomado de oa2p/landing (app/globals.css,
+   components/ui/{Card,Button,SectionHeading}, components/sections/{Hero,Stats})
+   Azul OA2P #0a1f44 + escala de tintes · graphite #3d4451 / #8a9099
+   Montserrat (sans) + Geist Mono (mono) · retícula técnica de 56px
+   ========================================================================== */
+:root{
+  /* marca, tal cual la define el landing */
+  --brand:#0a1f44;
+  --brand-80:#3b4d6a;
+  --brand-60:#6c7990;
+  --brand-40:#9da6b5;
+  --brand-20:#ced2da;
+  --graphite:#3d4451;
+  --graphite-light:#8a9099;
+
+  --bg:#ffffff;
+  --bg-alt:#f6f7f9;
+  --surface:#ffffff;
+  --surface-2:#f1f3f6;
+  --ink:#0a1f44;
+  --ink-body:#3d4451;
+  --ink-dim:#6c7990;
+  --rule:rgba(10,31,68,.09);
+  --rule-2:rgba(10,31,68,.16);
+  --accent:#0a1f44;
+  --accent-on:#ffffff;
+  --accent-wash:rgba(10,31,68,.06);
+  --crit:#8c2f22;
+  --crit-wash:rgba(140,47,34,.09);
+  --grid:rgba(10,31,68,.06);
+  --card-shadow:0 1px 2px rgba(10,31,68,.05);
+  --card-shadow-hi:0 10px 26px -12px rgba(10,31,68,.22);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#061224;
+    --bg-alt:#08182f;
+    --surface:#0b1d3c;
+    --surface-2:#112a52;
+    --ink:#f2f5fa;
+    --ink-body:#b9c4d6;
+    --ink-dim:#8996ad;
+    --rule:rgba(255,255,255,.10);
+    --rule-2:rgba(255,255,255,.18);
+    --accent:#9da6b5;
+    --accent-on:#061224;
+    --accent-wash:rgba(255,255,255,.08);
+    --crit:#e39a8e;
+    --crit-wash:rgba(227,154,142,.14);
+    --grid:rgba(255,255,255,.05);
+    --card-shadow:0 1px 2px rgba(0,0,0,.4);
+    --card-shadow-hi:0 10px 26px -12px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#061224; --bg-alt:#08182f; --surface:#0b1d3c; --surface-2:#112a52;
+  --ink:#f2f5fa; --ink-body:#b9c4d6; --ink-dim:#8996ad;
+  --rule:rgba(255,255,255,.10); --rule-2:rgba(255,255,255,.18);
+  --accent:#9da6b5; --accent-on:#061224; --accent-wash:rgba(255,255,255,.08);
+  --crit:#e39a8e; --crit-wash:rgba(227,154,142,.14); --grid:rgba(255,255,255,.05);
+  --card-shadow:0 1px 2px rgba(0,0,0,.4); --card-shadow-hi:0 10px 26px -12px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink-body);
+  font-family:Montserrat,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+code,kbd,.mono{font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.wrap{max-width:1280px; margin:0 auto; padding:0 clamp(20px,4vw,48px)}
+
+/* retícula técnica de ingeniería — .bg-grid / .bg-grid-dark del landing */
+.grid-tex::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background-image:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size:56px 56px;
+}
+.grid-dark::before{
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:.6;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size:56px 56px;
+}
+
+/* eyebrow: uppercase con tracking ancho, precedido de filete — idioma del landing */
+.eyebrow{
+  display:inline-flex; align-items:center; gap:12px;
+  font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.24em;
+  color:var(--brand-60); margin:0;
+}
+.eyebrow::before{content:""; width:38px; height:1px; background:currentColor; opacity:.55; flex:0 0 auto}
+.eyebrow.on-dark{color:rgba(255,255,255,.6)}
+
+/* ---------------- HERO (bg-brand + grid-dark + logo fantasma) ---------------- */
+.hero{position:relative; overflow:hidden; background:var(--brand); color:#fff; isolation:isolate}
+.hero .ghost{
+  position:absolute; right:-4%; top:50%; transform:translateY(-50%);
+  height:126%; width:auto; color:#fff; opacity:.05; pointer-events:none;
+}
+.hero .vlabel{
+  position:absolute; left:16px; top:50%; transform:translateY(-50%) rotate(-90deg);
+  transform-origin:center; font-size:10px; font-weight:500; text-transform:uppercase;
+  letter-spacing:.4em; color:rgba(255,255,255,.34); white-space:nowrap; pointer-events:none;
+}
+.hero .readout{
+  position:absolute; right:clamp(20px,4vw,48px); top:22px;
+  font-family:"Geist Mono",monospace; font-size:11px; letter-spacing:.14em;
+  color:rgba(255,255,255,.32); pointer-events:none;
+}
+.hero-inner{position:relative; z-index:2; padding:26px 0 0}
+.brandrow{display:flex; align-items:center; gap:16px; padding-bottom:30px}
+svg.logo{display:block; height:34px; width:auto; color:currentColor; flex:0 0 auto}
+.brandrow .divider{width:1px; height:26px; background:rgba(255,255,255,.2)}
+.brandrow .doclabel{
+  font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:.2em;
+  color:rgba(255,255,255,.62);
+}
+.hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(28px,5vw,72px); padding:clamp(16px,3vw,32px) 0 clamp(30px,5vw,48px)}
+h1{
+  font-weight:600; font-size:clamp(34px,6vw,72px); line-height:.99; letter-spacing:-.03em;
+  margin:20px 0 0; color:#fff; text-wrap:balance; max-width:18ch;
+}
+h1 .slash{color:rgba(255,255,255,.42); font-weight:500}
+.hero .dek{margin:22px 0 0; font-size:clamp(14.5px,1.5vw,16.5px); line-height:1.7; color:rgba(255,255,255,.72); max-width:52ch}
+.hero-side{align-self:end; padding-bottom:4px}
+.hero-side .blk{border-top:1px solid rgba(255,255,255,.14); padding:16px 0 0; margin-top:18px}
+.hero-side .blk:first-child{border-top:0; margin-top:0; padding-top:0}
+.hero-side .lab{
+  font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.2em;
+  color:rgba(255,255,255,.48); margin:0 0 8px;
+}
+.hero-side p{margin:0; font-size:13.5px; line-height:1.65; color:rgba(255,255,255,.74); max-width:44ch}
+.hero-side strong{color:#fff; font-weight:600}
+
+/* franja de métricas — Stats.tsx: divisores white/10, número grande, label debajo */
+.stats{position:relative; z-index:2; display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid rgba(255,255,255,.14)}
+.stat{padding:22px clamp(14px,2vw,26px) 26px; border-right:1px solid rgba(255,255,255,.1)}
+.stat:first-child{padding-left:0}
+.stat:last-child{border-right:0}
+.stat dt{font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.18em; color:rgba(255,255,255,.5)}
+.stat dd{
+  margin:8px 0 0; font-weight:700; font-size:clamp(26px,3.4vw,38px); line-height:1;
+  letter-spacing:-.03em; color:#fff; font-variant-numeric:tabular-nums;
+}
+
+/* ---------------- barra de filtros pegajosa ---------------- */
+.toolbar{position:sticky; top:0; z-index:30; background:var(--bg-alt); border-bottom:1px solid var(--rule); backdrop-filter:saturate(1.4)}
+.toolbar-inner{display:flex; flex-wrap:wrap; gap:10px; align-items:center; padding:13px 0}
+.searchbox{position:relative; flex:1 1 300px; min-width:210px}
+.searchbox .pre{
+  position:absolute; left:16px; top:50%; transform:translateY(-50%);
+  font-family:"Geist Mono",monospace; font-weight:600; color:var(--brand-40); pointer-events:none;
+}
+#q{
+  width:100%; height:46px; padding:0 16px 0 32px; border-radius:999px;
+  font-family:"Geist Mono",monospace; font-size:13.5px; color:var(--ink);
+  background:var(--surface-2); border:1px solid transparent; transition:border-color .18s, background .18s;
+}
+#q::placeholder{color:var(--ink-dim)}
+#q:focus-visible{outline:none; border-color:var(--brand-40); background:var(--surface)}
+.chips{display:flex; flex-wrap:wrap; gap:7px}
+.chip{
+  height:38px; padding:0 17px; border-radius:999px; cursor:pointer;
+  font-family:Montserrat,sans-serif; font-size:11px; font-weight:600;
+  text-transform:uppercase; letter-spacing:.09em;
+  background:transparent; color:var(--ink-body); border:1px solid var(--rule-2);
+  transition:background .18s, color .18s, border-color .18s;
+}
+.chip:hover{border-color:var(--brand-40); color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--accent); color:var(--accent-on); border-color:var(--accent)}
+.chip:focus-visible{outline:2px solid var(--brand-40); outline-offset:2px}
+.count{font-family:"Geist Mono",monospace; font-size:11.5px; color:var(--ink-dim); font-variant-numeric:tabular-nums; white-space:nowrap; margin-left:auto}
+
+/* ---------------- secciones ---------------- */
+main{position:relative; padding:0 0 20px; background:var(--bg-alt)}
+section.group{padding-top:52px}
+.ghead{display:flex; flex-direction:column; gap:14px}
+h2{
+  font-weight:600; font-size:clamp(21px,2.7vw,30px); line-height:1.12; letter-spacing:-.022em;
+  color:var(--ink); margin:0; text-wrap:balance;
+}
+.gnum{
+  font-family:"Geist Mono",monospace; font-size:11px; font-weight:600; letter-spacing:.18em;
+  color:var(--brand-40); font-variant-numeric:tabular-nums;
+}
+.gnote{color:var(--ink-dim); font-size:14px; margin:14px 0 0; max-width:72ch; line-height:1.65}
+
+/* ---------------- fichas (Card.tsx: rounded-2xl, borde 6%, hover lift) ------ */
+.rows{display:grid; gap:12px; margin-top:26px}
+.row{
+  display:grid; grid-template-columns:minmax(215px,.95fr) minmax(0,1.5fr) minmax(0,1.2fr);
+  background:var(--surface); border:1px solid var(--rule); border-radius:16px;
+  box-shadow:var(--card-shadow); overflow:hidden;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.row:hover{transform:translateY(-2px); border-color:rgba(10,31,68,.2); box-shadow:var(--card-shadow-hi)}
+:root[data-theme="dark"] .row:hover,
+:root:not([data-theme="light"]) .row:hover{border-color:rgba(255,255,255,.24)}
+.row.core{box-shadow:var(--card-shadow), inset 3px 0 0 var(--accent)}
+.row.core:hover{box-shadow:var(--card-shadow-hi), inset 3px 0 0 var(--accent)}
+.row > div{padding:18px 22px}
+.row .c-name{border-right:1px solid var(--rule); background:var(--accent-wash)}
+.row .c-what{border-right:1px solid var(--rule)}
+.cmd{
+  font-family:"Geist Mono",monospace; font-weight:600; font-size:14.5px; color:var(--ink);
+  margin:0; word-break:break-word; letter-spacing:-.015em;
+}
+.cmd .arg{color:var(--ink-dim); font-weight:400}
+.tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:11px}
+.tag{
+  font-size:9.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  padding:4px 9px; border-radius:999px; line-height:1.3;
+}
+.t-core{background:var(--accent); color:var(--accent-on)}
+.t-cond{background:transparent; color:var(--ink-dim); border:1px dashed var(--rule-2)}
+.t-skill{background:transparent; color:var(--accent); border:1px solid var(--accent)}
+.t-cloud{background:var(--surface-2); color:var(--ink-body)}
+.t-warn{background:var(--crit-wash); color:var(--crit)}
+.alias{margin:11px 0 0; font-family:"Geist Mono",monospace; font-size:11px; color:var(--ink-dim); line-height:1.6}
+.what{margin:0; font-size:14px; color:var(--ink-body); line-height:1.65}
+.what strong{font-weight:600; color:var(--ink)}
+.ex{display:flex; flex-direction:column; gap:6px; margin-top:13px}
+.ex code{
+  display:block; font-size:12px; padding:8px 11px; border-radius:8px;
+  background:var(--surface-2); color:var(--ink-body); overflow-x:auto; line-height:1.5;
+}
+.when{margin:0; font-size:13.5px; color:var(--ink-body); line-height:1.65}
+.whenlab{
+  display:block; font-size:9.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--brand-40); margin-bottom:8px;
+}
+.empty{
+  padding:52px 22px; text-align:center; color:var(--ink-dim); font-size:14px;
+  background:var(--surface); border:1px solid var(--rule); border-radius:16px; margin-top:26px;
+}
+
+/* ---------------- prosa ---------------- */
+.prose{
+  background:var(--surface); border:1px solid var(--rule); border-radius:16px;
+  box-shadow:var(--card-shadow); padding:clamp(22px,3vw,34px); margin-top:26px;
+}
+.prose h3{
+  font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--brand-60); margin:34px 0 14px;
+}
+.prose h3:first-child{margin-top:0}
+.prose p{margin:0 0 14px; max-width:72ch; font-size:14px; line-height:1.7}
+.prose p:last-child{margin-bottom:0}
+.prose ul{margin:0 0 14px; padding-left:22px; max-width:72ch; font-size:14px}
+.prose code{
+  font-family:"Geist Mono",monospace; font-size:12.5px; background:var(--surface-2);
+  border-radius:5px; padding:2px 6px; color:var(--ink);
+}
+pre{
+  margin:0 0 16px; padding:18px 20px; background:var(--surface-2); border-radius:12px;
+  overflow-x:auto; font-family:"Geist Mono",monospace; font-size:12.5px;
+  line-height:1.8; color:var(--ink-body);
+}
+pre b{color:var(--ink); font-weight:600}
+.mini{width:100%; border-collapse:collapse; font-size:13.5px; margin:0 0 16px}
+.mini th,.mini td{text-align:left; padding:11px 16px 11px 0; border-bottom:1px solid var(--rule); vertical-align:top}
+.mini th{font-size:9.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--brand-40)}
+.mini td:first-child{white-space:nowrap; font-family:"Geist Mono",monospace; font-size:12.5px; color:var(--ink)}
+.tscroll{overflow-x:auto}
+kbd{
+  display:inline-block; font-family:"Geist Mono",monospace; font-size:11.5px; padding:2px 7px;
+  border-radius:6px; background:var(--surface-2); border:1px solid var(--rule); color:var(--ink);
+}
+.dek code,.hero-side code,.gnote code{
+  font-family:"Geist Mono",monospace; font-size:.9em; border-radius:5px; padding:2px 6px;
+  background:rgba(255,255,255,.12); color:#fff;
+}
+.gnote code{background:var(--surface-2); color:var(--ink)}
+a{color:var(--accent); text-decoration:underline; text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--brand-40); outline-offset:2px}
+
+/* ---------------- CTA + pie (banda azul con logo fantasma) ---------------- */
+.closing{position:relative; overflow:hidden; background:var(--brand); color:#fff; margin-top:56px; isolation:isolate}
+.closing .ghost{
+  position:absolute; right:-2%; top:50%; transform:translateY(-50%);
+  height:170%; width:auto; color:#fff; opacity:.055; pointer-events:none;
+}
+.closing-inner{position:relative; z-index:2; padding:clamp(34px,5vw,54px) 0 26px}
+.closing h2{color:#fff; font-size:clamp(22px,3vw,34px); max-width:26ch; margin:18px 0 0}
+.closing .tagline{margin:18px 0 0; font-size:15px; line-height:1.7; color:rgba(255,255,255,.72); max-width:52ch}
+.footrow{
+  position:relative; z-index:2; display:flex; flex-wrap:wrap; align-items:center; gap:18px 28px;
+  padding:24px 0; border-top:1px solid rgba(255,255,255,.14);
+}
+.footrow svg.logo{height:28px}
+.footrow .ver{
+  margin-left:auto; font-family:"Geist Mono",monospace; font-size:10.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:rgba(255,255,255,.55); white-space:nowrap;
+}
+.colofon{position:relative; z-index:2; padding:22px 0 46px; border-top:1px solid rgba(255,255,255,.14)}
+.colofon p{margin:0 0 10px; font-size:13px; color:rgba(255,255,255,.66); line-height:1.7}
+.colofon strong{color:#fff; font-weight:600}
+.colofon .lab{
+  font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.2em;
+  color:rgba(255,255,255,.46); margin:18px 0 8px;
+}
+.colofon code{
+  font-family:"Geist Mono",monospace; font-size:11.5px; color:rgba(255,255,255,.88);
+  background:rgba(255,255,255,.09); border-radius:5px; padding:2px 6px;
+}
+.colofon .mono{font-family:"Geist Mono",monospace; font-size:11px; line-height:2; color:rgba(255,255,255,.6)}
+
+/* ---------------- reveal discreto (Reveal.tsx) ---------------- */
+.rv{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease}
+.rv.in{opacity:1; transform:none}
+
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr; gap:24px}
+  .hero-side{align-self:start}
+  .hero .ghost,.hero .vlabel,.hero .readout{display:none}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{padding-left:0; padding-right:18px}
+  .stat:nth-child(2){border-right:0}
+  .stat:nth-child(3),.stat:nth-child(4){border-top:1px solid rgba(255,255,255,.1)}
+}
+@media (max-width:860px){
+  .row{grid-template-columns:1fr}
+  .row .c-name,.row .c-what{border-right:0; border-bottom:1px solid var(--rule)}
+  .count{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation-duration:.001ms !important; transition-duration:.001ms !important}
+  .rv{opacity:1; transform:none}
+}
+</style>
+</head>
+<body>
+<section class="hero grid-dark">
+  <svg viewBox="-0.6 -0.2 22.1 24.9" class="ghost" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-5.0631132,-80.023416)"><g id="g20-4" transform="matrix(0.254887,0,0,0.254887,-24.0535,72.406391)" style="fill:currentColor"><path id="rect9-7-8" style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" d="m 154.92617,77.025871 -6.00686,3.50418 v 6.99957 l 6.00686,-3.50366 11.99979,6.99957 v 0.26304 h -0.0274 v 36.484589 l 6.0017,-3.47989 V 113.9399 l 0.0258,-0.015 v -5.39915 -13.386779 -7.61297 z" /><path id="path7-4-1-2-5-2-5-4-3" style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" d="m 154.91576,56.043041 -17.99993,10.50013 v 5.41776 l -0.002,-0.001 v 7.00009 l 0.002,0.001 v 8.5819 l 0.002,10e-4 v 13.952629 l -4.68447,2.73265 -12.0003,-7.000089 v -14.00018 l 10.681,-6.23011 v -7.00009 l -16.68064,9.73068 v 20.999749 l 17.99994,10.50013 10.64999,-6.21254 V 77.860791 h 0.0326 v -3.4432 h 0.004 v -4.377 l 11.99668,-6.9975 6.0017,3.50107 v -7.00009 z" /><path id="path7-4-1-2-01-6-9" style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" d="m 154.90956,29.88391 -17.99994,10.500131 v 19.23294 l 5.99964,-3.51658 v -12.21683 l 12.0003,-6.999571 11.99978,6.999571 v 4.11345 h -10e-4 v 9.88725 l -0.009,0.005 v 7.00008 l 0.009,-0.005 v 12.14758 l 6.00118,3.51761 v -19.16575 -13.38678 -7.61298 z" /><path id="path7-4-6-7-0-0" style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" d="m 178.92313,70.052921 v 7.00008 l 10.62726,6.19911 v 14.00018 l -7.62744,4.449339 v 7.00009 l 13.62759,-7.94939 V 79.752581 Z" /></g></g></svg>
+  <span class="vlabel" aria-hidden="true">OA²P · Potenciación</span>
+  <span class="readout" aria-hidden="true">f(x) = xⁿ · 132 comandos</span>
+  <div class="wrap hero-inner">
+    <div class="brandrow">
+      <svg class="logo" role="img" aria-label="OA2P Solutions" viewBox="0 0 91.486809 24.950699" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs1" /><g id="layer1" transform="translate(-5.0631132,-80.023416)"><path style="fill:currentColor;stroke-width:1.43661" d="m 30.676282,101.50387 c -0.371733,-0.0677 -0.905441,-0.32594 -0.905441,-0.43827 0,-0.0576 0.05153,-0.1753 0.114669,-0.26151 0.108285,-0.14805 0.13188,-0.14819 0.423983,-0.002 0.737894,0.36811 1.634468,0.21591 1.634468,-0.27748 0,-0.23089 -0.119241,-0.29032 -1.312897,-0.65454 -0.473066,-0.144334 -0.565068,-0.210361 -0.711873,-0.510925 -0.236986,-0.485159 -0.06929,-0.939075 0.43928,-1.188433 0.445037,-0.218265 1.31068,-0.229081 1.793843,-0.0224 0.337286,0.144264 0.358838,0.252212 0.115481,0.578588 -0.007,0.01045 -0.175276,-0.03888 -0.372557,-0.109213 -0.440522,-0.156904 -0.86584,-0.168916 -1.164373,-0.03285 -0.530017,0.241489 -0.348114,0.651243 0.377745,0.850915 1.078476,0.296676 1.29912,0.40871 1.432219,0.727308 0.178189,0.42641 0.007,0.90683 -0.410358,1.15353 -0.26289,0.15529 -1.063922,0.25874 -1.45412,0.18779 z m 8.019034,-0.0455 c -1.026574,-0.24062 -1.598072,-1.40861 -1.17945,-2.41049 0.290316,-0.694835 0.84568,-1.031889 1.704035,-1.034187 1.199157,-0.0035 1.869028,0.618792 1.869028,1.735499 0,0.906888 -0.490185,1.525738 -1.355492,1.711328 -0.525212,0.11257 -0.548645,0.11257 -1.038121,-0.002 z m 1.263361,-0.66061 c 0.707115,-0.46332 0.671183,-1.718532 -0.06,-2.096659 -0.900299,-0.465568 -1.888224,0.106312 -1.888224,1.093077 0,0.939762 1.145281,1.529712 1.948262,1.003582 z m 14.64632,0.67779 c -0.851252,-0.21208 -1.058456,-0.64569 -1.062866,-2.224354 l -0.0023,-1.177082 0.283631,-0.02762 0.283642,-0.02762 0.03575,1.222625 c 0.03331,1.138161 0.0506,1.238481 0.251482,1.452271 0.266732,0.28392 0.732114,0.38159 1.097347,0.2303 0.48451,-0.20069 0.538153,-0.36945 0.538153,-1.693098 v -1.202209 h 0.323579 0.323591 l -0.02936,1.306618 c -0.026,1.160249 -0.05072,1.335229 -0.219855,1.561889 -0.370061,0.49574 -1.154043,0.74455 -1.821814,0.5782 z m 21.490337,-0.0272 c -1.320731,-0.34949 -1.643556,-2.362489 -0.500213,-3.119127 1.036126,-0.685667 2.550145,-0.283759 2.898457,0.76944 0.502603,1.519707 -0.781255,2.777577 -2.398244,2.349687 z m 1.349502,-0.65106 c 0.356308,-0.23346 0.530621,-0.57779 0.530621,-1.04815 0,-0.552986 -0.20999,-0.872955 -0.721333,-1.099147 -0.517853,-0.229082 -0.955869,-0.151808 -1.38887,0.244994 -0.302665,0.277363 -0.324055,0.332805 -0.324055,0.8399 0,0.453383 0.03737,0.583373 0.226366,0.788123 0.456411,0.4944 1.164582,0.61021 1.677271,0.27428 z m 14.954822,0.63726 c -0.568921,-0.15797 -0.666482,-0.25759 -0.534938,-0.54628 0.0983,-0.21577 0.111999,-0.21893 0.377605,-0.0865 0.672007,0.33523 1.646283,0.21448 1.707656,-0.21166 0.03586,-0.24943 -0.233968,-0.42298 -0.888367,-0.57132 -0.96635,-0.219047 -1.332941,-0.556449 -1.238305,-1.13968 0.09772,-0.602404 0.540927,-0.883482 1.383253,-0.87733 0.792142,0.0058 1.237597,0.166873 1.161286,0.419979 -0.09355,0.310348 -0.154698,0.332643 -0.537828,0.196213 -0.472914,-0.168405 -0.807171,-0.167917 -1.135091,0.0012 -0.56292,0.291105 -0.269877,0.666482 0.702554,0.899939 1.004987,0.241268 1.388917,0.725719 1.083212,1.366819 -0.258062,0.54115 -1.206515,0.79096 -2.081037,0.54813 z M 46.068886,99.749173 V 98.02882 h 0.316917 0.316894 v 1.448723 1.448707 h 0.950728 0.950716 v 0.27163 0.27165 h -1.267622 -1.267633 z m 16.569687,0.271637 v -1.448719 h -0.588535 -0.588547 v -0.27163 -0.271641 h 1.500011 1.499999 l -0.02855,0.249009 c -0.02739,0.238622 -0.05211,0.250112 -0.594547,0.275948 l -0.565915,0.02693 v 1.444393 1.44441 h -0.316893 -0.316929 z m 6.609772,-0.271637 V 98.02882 h 0.316905 0.316905 v 1.720353 1.720357 H 69.56525 69.248345 Z m 14.306073,0 V 98.02882 h 0.269251 c 0.232424,0 0.3853,0.139355 1.117519,1.018635 1.237701,1.486255 1.148485,1.476605 1.148485,0.124267 V 98.02882 h 0.316905 0.316894 v 1.720353 1.720357 l -0.294262,-0.006 c -0.262055,-0.006 -0.383513,-0.11525 -1.109174,-1.00111 -1.228068,-1.499249 -1.131818,-1.487468 -1.131818,-0.13847 V 101.47 h -0.316894 -0.316906 z" id="path3" /><path style="fill:currentColor;stroke:none;stroke-width:1.12431" d="m 32.799189,92.221836 c -1.438144,-0.376607 -2.36348,-1.357879 -2.636112,-2.795495 -0.114215,-0.602267 -0.114215,-3.171641 0,-3.773918 0.273446,-1.441884 1.253442,-2.444755 2.77141,-2.836134 0.762893,-0.19669 6.716361,-0.201991 7.544638,-0.0066 1.502032,0.354128 2.51533,1.341734 2.812498,2.741175 0.151576,0.713854 0.127281,3.4622 -0.03618,4.089696 -0.270003,1.036604 -0.888294,1.82079 -1.799772,2.282666 -0.842454,0.426912 -1.336588,0.47537 -4.810798,0.471785 -2.875264,-0.0033 -3.26276,-0.02045 -3.845704,-0.173066 z m 7.056717,-1.527943 c 0.664077,-0.197207 1.11104,-0.565918 1.400388,-1.155207 0.245719,-0.500402 0.250305,-0.536982 0.241595,-1.927756 -0.0055,-0.849272 -0.05345,-1.57661 -0.119868,-1.814058 -0.15019,-0.536477 -0.599704,-1.036241 -1.159562,-1.289208 -0.45983,-0.207765 -0.488711,-0.209525 -3.442162,-0.209525 -3.229051,0 -3.322799,0.01155 -3.985379,0.491538 -0.668399,0.48418 -0.787365,0.900304 -0.7861,2.749699 10e-4,1.39854 0.02123,1.621393 0.179775,1.971034 0.282079,0.622184 0.74511,1.007172 1.481861,1.232095 0.441915,0.134914 5.710815,0.09349 6.189452,-0.04861 z m 8.053686,1.632601 c -0.04069,-0.06587 0.727677,-1.259843 4.612897,-7.168326 0.512699,-0.779687 1.034294,-1.579381 1.159111,-1.777105 0.348772,-0.552467 0.664747,-0.702833 1.477716,-0.703217 1.053848,-5.07e-4 1.126941,0.05499 2.172937,1.649647 0.495057,0.754744 1.860031,2.825257 3.033285,4.60114 1.196032,1.810419 2.112602,3.282414 2.086382,3.350745 -0.03597,0.09393 -0.268319,0.12187 -1.011582,0.12187 H 60.475519 L 59.68402,91.218634 58.892508,90.03602 h -2.752712 c -1.914109,0 -2.770948,-0.02948 -2.812521,-0.09678 -0.03289,-0.05324 -0.07995,-0.347826 -0.104593,-0.654683 -0.04344,-0.542756 -0.03838,-0.560398 0.191729,-0.647864 0.137906,-0.05246 1.113657,-0.08996 2.340538,-0.08996 1.22928,0 2.091892,-0.03322 2.074823,-0.07985 -0.07369,-0.201386 -2.577579,-3.949042 -2.638717,-3.949404 -0.0562,-3.31e-4 -4.106645,6.055473 -4.938629,7.383877 -0.126917,0.202629 -0.274139,0.397384 -0.32716,0.432775 -0.135299,0.09029 -1.959409,0.08336 -2.015698,-0.0077 z m 20.30587,-0.05026 c -0.02661,-0.06951 -0.03519,-0.82863 -0.01892,-1.686987 0.03343,-1.758419 0.148419,-2.14455 0.812473,-2.727603 0.854848,-0.750565 1.221503,-0.818863 4.734921,-0.88197 2.781859,-0.05004 2.998664,-0.06521 3.285043,-0.231675 0.837164,-0.486523 0.806732,-1.8198 -0.05181,-2.270227 -0.329195,-0.172703 -0.503724,-0.1806 -4.528707,-0.204763 l -4.186326,-0.02508 0.0253,-0.763279 0.0253,-0.76329 4.117247,-0.0232 c 4.445759,-0.02497 4.686926,-0.0066 5.556797,0.428255 0.988609,0.494023 1.356428,1.179424 1.360762,2.535753 0.0022,0.860502 -0.01573,0.962575 -0.261414,1.442917 -0.306022,0.598373 -0.869697,1.073129 -1.563478,1.316835 -0.387507,0.136123 -0.868322,0.164806 -3.472032,0.20715 -3.001997,0.04883 -3.02518,0.05059 -3.460243,0.268143 -0.555678,0.277844 -0.744296,0.627188 -0.744483,1.378962 l -1.32e-4,0.546748 4.708559,0.02266 4.70857,0.02266 v 0.744615 0.744615 l -5.499476,0.02254 c -4.72422,0.01935 -5.506305,0.0044 -5.547955,-0.103826 z m 17.369311,0.06665 c -0.03211,-0.03211 -0.0584,-0.881618 -0.0584,-1.887778 0,-2.03369 0.04102,-2.220503 0.548992,-2.498095 0.25432,-0.138994 0.663899,-0.159253 4.012874,-0.198582 l 3.729641,-0.04377 0.352027,-0.233093 c 0.474876,-0.314437 0.642212,-0.697434 0.642212,-1.469962 0,-0.796658 -0.190399,-1.195515 -0.713678,-1.495081 L 93.717105,84.2982 89.643641,84.25443 85.570178,84.21066 v -0.744604 -0.744615 l 3.942058,-0.02584 c 4.274266,-0.02804 4.643857,4.5e-4 5.479162,0.422118 1.172936,0.592093 1.736512,1.912524 1.508829,3.535095 -0.164465,1.172022 -0.708387,1.953493 -1.675163,2.406756 l -0.494761,0.231961 -3.477927,0.04377 c -2.533609,0.0319 -3.506358,0.07226 -3.582684,0.148705 -0.0705,0.07061 -0.110289,0.543053 -0.121782,1.445424 -0.0088,0.73728 -0.0232,1.370078 -0.03091,1.406206 -0.01705,0.08127 -1.451506,0.0881 -1.532266,0.0077 z" id="path2" /><g id="g20-4" transform="matrix(0.254887,0,0,0.254887,-24.0535,72.406391)" style="fill:currentColor"><path id="rect9-7-8" style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" d="m 154.92617,77.025871 -6.00686,3.50418 v 6.99957 l 6.00686,-3.50366 11.99979,6.99957 v 0.26304 h -0.0274 v 36.484589 l 6.0017,-3.47989 V 113.9399 l 0.0258,-0.015 v -5.39915 -13.386779 -7.61297 z" /><path id="path7-4-1-2-5-2-5-4-3" style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" d="m 154.91576,56.043041 -17.99993,10.50013 v 5.41776 l -0.002,-0.001 v 7.00009 l 0.002,0.001 v 8.5819 l 0.002,10e-4 v 13.952629 l -4.68447,2.73265 -12.0003,-7.000089 v -14.00018 l 10.681,-6.23011 v -7.00009 l -16.68064,9.73068 v 20.999749 l 17.99994,10.50013 10.64999,-6.21254 V 77.860791 h 0.0326 v -3.4432 h 0.004 v -4.377 l 11.99668,-6.9975 6.0017,3.50107 v -7.00009 z" /><path id="path7-4-1-2-01-6-9" style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" d="m 154.90956,29.88391 -17.99994,10.500131 v 19.23294 l 5.99964,-3.51658 v -12.21683 l 12.0003,-6.999571 11.99978,6.999571 v 4.11345 h -10e-4 v 9.88725 l -0.009,0.005 v 7.00008 l 0.009,-0.005 v 12.14758 l 6.00118,3.51761 v -19.16575 -13.38678 -7.61298 z" /><path id="path7-4-6-7-0-0" style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" d="m 178.92313,70.052921 v 7.00008 l 10.62726,6.19911 v 14.00018 l -7.62744,4.449339 v 7.00009 l 13.62759,-7.94939 V 79.752581 Z" /></g></g></svg>
+      <span class="divider"></span>
+      <span class="doclabel">Referencia de comandos · Claude Code</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow on-dark">Ingeniería · Automatización · IA</p>
+        <h1><span class="slash">/</span>Comandos slash de Claude Code</h1>
+        <p class="dek">Inventario completo extraído del binario instalado, no de la documentación pública: qué hace cada comando, cómo se escribe, un ejemplo real y cuándo conviene usarlo. Incluye los que <code>/help</code> te oculta.</p>
+      </div>
+      <div class="hero-side">
+        <div class="blk">
+          <p class="lab">Alcance</p>
+          <p>Claude Code <strong>2.1.247</strong> sobre macOS arm64. Descripciones, alias y condiciones de visibilidad salen de las definiciones de comando del propio binario.</p>
+        </div>
+        <div class="blk">
+          <p class="lab">Cómo usarla</p>
+          <p>Pulsa <kbd>/</kbd> para saltar al buscador. Filtra por tipo con los botones. <kbd>Esc</kbd> limpia la búsqueda.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <dl class="stats">
+      <div class="stat"><dt>Comandos</dt><dd id="f-total">—</dd></div>
+      <div class="stat"><dt>De uso diario</dt><dd id="f-core">—</dd></div>
+      <div class="stat"><dt>Ocultos o condicionales</dt><dd id="f-cond">—</dd></div>
+      <div class="stat"><dt>Skills invocables</dt><dd id="f-skill">—</dd></div>
+    </dl>
+  </div>
+</section>
+<div class="toolbar">
+  <div class="wrap toolbar-inner">
+    <label class="searchbox">
+      <span class="pre">/</span>
+      <input id="q" type="search" placeholder="busca un comando, un alias o un problema…" autocomplete="off" aria-label="Buscar comandos">
+    </label>
+    <div class="chips" role="group" aria-label="Filtros">
+      <button class="chip" data-f="core" aria-pressed="false">de uso diario</button>
+      <button class="chip" data-f="cond" aria-pressed="false">condicionales</button>
+      <button class="chip" data-f="skill" aria-pressed="false">skills</button>
+      <button class="chip" data-f="cloud" aria-pressed="false">nube / background</button>
+    </div>
+    <span class="count" id="count"></span>
+  </div>
+</div>
+
+<main class="wrap">
+  <div id="groups"></div>
+
+  <div id="extras">
+    <section class="group">
+      <div class="ghead"><span class="gnum">A</span><h2>Elegir bien: contexto lleno o error cometido</h2></div>
+      <div class="prose">
+<pre>¿Cambias de tarea?
+  └─ Sí ─────────────────────────────────► <b>/clear</b>
+  └─ No, sigo en la misma tarea
+       ├─ Contexto lleno pero el hilo importa ─► <b>/compact</b> "qué conservar"
+       ├─ Quiero probar otro camino ───────────► <b>/branch</b>
+       ├─ Quiero delegar y seguir yo ──────────► <b>/fork</b>  o  <b>/subtask</b>
+       └─ Claude rompió algo ─────────────────► <b>/rewind</b></pre>
+        <h3>Las cuatro formas de duplicar una conversación</h3>
+        <div class="tscroll"><table class="mini">
+          <thead><tr><th>Comando</th><th>Contexto que recibe</th><th>Dónde corre</th><th>Dónde acabas tú</th></tr></thead>
+          <tbody>
+            <tr><td>/branch</td><td>Copia completa</td><td>Aquí</td><td>En la rama nueva</td></tr>
+            <tr><td>/fork</td><td>Copia completa</td><td>Background</td><td>En el hilo original</td></tr>
+            <tr><td>/subtask</td><td>Copia completa</td><td>Subagente</td><td>Aquí; el resultado vuelve a este chat</td></tr>
+            <tr><td>/btw</td><td>Aislado</td><td>Aquí, aparte</td><td>Aquí; no toca el hilo principal</td></tr>
+            <tr><td>/clear</td><td>Vacío</td><td>Aquí</td><td>Sesión nueva; la vieja queda en disco</td></tr>
+          </tbody>
+        </table></div>
+        <h3>Automatización: qué sobrevive a cerrar el portátil</h3>
+        <div class="tscroll"><table class="mini">
+          <thead><tr><th>Comando</th><th>Dónde corre</th><th>Sobrevive al cierre</th><th>Cadencia</th></tr></thead>
+          <tbody>
+            <tr><td>/background</td><td>Tu máquina</td><td>No</td><td>Una vez</td></tr>
+            <tr><td>/loop</td><td>Esta sesión</td><td>No</td><td>Cada N minutos, o autorregulada</td></tr>
+            <tr><td>/schedule</td><td>Nube</td><td>Sí</td><td>Cron</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section class="group">
+      <div class="ghead"><span class="gnum">B</span><h2>Por qué <code>/help</code> no te muestra todo</h2></div>
+      <div class="prose">
+        <p>Cada comando lleva dos condiciones: <code>isEnabled</code> y <code>isHidden</code>. Un comando puede existir en el binario y no aparecer en tu autocompletado. Estas son las razones reales:</p>
+        <div class="tscroll"><table class="mini">
+          <thead><tr><th>Causa</th><th>Qué desaparece</th></tr></thead>
+          <tbody>
+            <tr><td>fuera de un repo git</td><td>/commit · /pr · /security-review</td></tr>
+            <tr><td>tu plan no lo incluye</td><td>/upgrade · /usage-credits · /passes</td></tr>
+            <tr><td>falta la integración</td><td>/setup-bedrock · /chrome · /desktop</td></tr>
+            <tr><td>feature flag apagado</td><td>/advisor · /brief · /btw · /sandbox</td></tr>
+            <tr><td>solo en sesión remota o de background</td><td>/stop · /session · /remote-env</td></tr>
+            <tr><td>interno o de diagnóstico</td><td>/heapdump · /workflow-launch-exec</td></tr>
+            <tr><td>skill desactivada en /config</td><td>cualquier /nombre-de-skill</td></tr>
+          </tbody>
+        </table></div>
+        <p><strong>Regla práctica:</strong> escribe <code>/</code> y lee la lista. Si un comando de esta página no aparece, su condición no se cumple ahora mismo; escribirlo igualmente suele devolver un mensaje explicando qué falta.</p>
+        <h3>Los comandos que aportan los servidores MCP</h3>
+        <p>Esto casi nadie lo sabe: un servidor MCP puede exponer <em>prompts</em>, y Claude Code los registra como comandos slash con la forma <code>/mcp__&lt;servidor&gt;__&lt;prompt&gt;</code>. En servidores HTTP o SSE aceptan además la forma corta <code>&lt;servidor&gt;:&lt;prompt&gt;</code>.</p>
+        <p>Escribe <code>/mcp__</code> y deja que el autocompletado te muestre lo que ofrece cada servidor conectado — no todos exponen prompts. Suelen ser mejores que pedir lo mismo en lenguaje natural, porque llevan los campos obligatorios ya resueltos.</p>
+      </div>
+    </section>
+
+    <section class="group">
+      <div class="ghead"><span class="gnum">C</span><h2>Sintaxis que no empieza por <code>/</code></h2></div>
+      <div class="prose">
+        <div class="tscroll"><table class="mini">
+          <thead><tr><th>Sintaxis</th><th>Qué hace</th><th>Ejemplo</th></tr></thead>
+          <tbody>
+            <tr><td>#</td><td>Guarda una memoria de proyecto (va a CLAUDE.md)</td><td><code># siempre usamos pnpm, nunca npm</code></td></tr>
+            <tr><td>!</td><td>Ejecuta un comando de shell <strong>tú mismo</strong>; su salida entra en la conversación</td><td><code>! gcloud auth login</code></td></tr>
+            <tr><td>@</td><td>Autocompleta y adjunta una ruta de archivo o directorio</td><td><code>revisa @src/auth/session.ts</code></td></tr>
+            <tr><td>ultrathink</td><td>Sube el presupuesto de razonamiento de ese turno</td><td><code>ultrathink por qué el deadlock solo sale en prod</code></td></tr>
+            <tr><td>+500k</td><td>Fija un techo de tokens para el turno</td><td><code>+500k audita todo el paquete de pagos</code></td></tr>
+            <tr><td>ultracode</td><td>Activa orquestación multiagente para esa petición</td><td><code>ultracode migra todos los tests a vitest</code></td></tr>
+          </tbody>
+        </table></div>
+        <p><strong><code>!</code> es la vía cuando Claude no puede:</strong> logins interactivos (<code>gcloud auth login</code>, <code>docker login</code>), comandos que piden contraseña, o cualquier cosa que necesite tu TTY.</p>
+      </div>
+    </section>
+
+    <section class="group">
+      <div class="ghead"><span class="gnum">D</span><h2>Atajos de teclado por defecto</h2></div>
+      <div class="prose">
+        <p>En macOS <code>meta</code> es <kbd>Option</kbd>. Todo esto se rebindea en <code>~/.claude/keybindings.json</code> (<code>/keybindings</code>).</p>
+        <h3>Globales</h3>
+        <div class="tscroll"><table class="mini">
+          <tbody>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td><td>Interrumpir</td><td><kbd>Ctrl</kbd>+<kbd>D</kbd></td><td>Salir</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>O</kbd></td><td>Ver el transcript completo</td><td><kbd>Ctrl</kbd>+<kbd>T</kbd></td><td>Ver los todos</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>R</kbd></td><td>Buscar en el historial</td><td><kbd>Ctrl</kbd>+<kbd>]</kbd></td><td>Abrir el último artifact</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>↑</kbd> / <kbd>↓</kbd></td><td>Navegar los archivos del diff</td><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd></td><td>Modo brief</td></tr>
+          </tbody>
+        </table></div>
+        <h3>En el chat</h3>
+        <div class="tscroll"><table class="mini">
+          <tbody>
+            <tr><td><kbd>Shift</kbd>+<kbd>Tab</kbd></td><td><strong>Ciclar modo de permisos</strong> (incluye plan mode)</td><td><kbd>Esc</kbd></td><td>Cancelar el turno</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>J</kbd></td><td>Salto de línea</td><td><kbd>Ctrl</kbd>+<kbd>L</kbd></td><td>Limpiar el input</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>X</kbd> <kbd>Enter</kbd></td><td>Encolar el mensaje</td><td><kbd>Cmd</kbd>+<kbd>K</kbd></td><td>Limpiar la pantalla</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>G</kbd></td><td>Abrir editor externo</td><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>Stash del prompt</td></tr>
+            <tr><td><kbd>Alt</kbd>+<kbd>P</kbd></td><td>Selector de modelo</td><td><kbd>Alt</kbd>+<kbd>O</kbd></td><td>Modo rápido</td></tr>
+            <tr><td><kbd>Alt</kbd>+<kbd>T</kbd></td><td>Alternar thinking</td><td><kbd>Alt</kbd>+<kbd>W</kbd></td><td>Alternar ultracode</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>X</kbd> <kbd>Ctrl</kbd>+<kbd>K</kbd></td><td><strong>Matar todos los agentes</strong></td><td><kbd>Ctrl</kbd>+<kbd>B</kbd></td><td>Mandar la tarea a background</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section class="group">
+      <div class="ghead"><span class="gnum">E</span><h2>Crear tus propios comandos</h2></div>
+      <div class="prose">
+        <p>Un comando propio es un archivo Markdown. La ruta determina el nombre y el alcance:</p>
+<pre><b>.claude/commands/deploy.md</b>       → /deploy      solo este proyecto, versionable en git
+<b>~/.claude/commands/revisar.md</b>   → /revisar     todas tus sesiones
+<b>.claude/commands/db/migrar.md</b>   → /db:migrar   los subdirectorios crean namespaces</pre>
+        <h3>Ejemplo completo</h3>
+<pre>---
+description: Revisa un PR contra nuestras convenciones internas
+argument-hint: &lt;número-de-pr&gt;
+allowed-tools: Bash(gh pr *), Bash(git diff *), Read, Grep
+model: opus
+effort: high
+when_to_use: Cuando haya que revisar un PR ajeno antes de aprobarlo
+---
+
+Revisa el PR #$ARGUMENTS.
+
+Contexto del repositorio:
+- Convenciones: @CONTRIBUTING.md
+- Diff actual: !`gh pr diff $ARGUMENTS`
+
+Comprueba, en este orden:
+1. ¿Hay tests para el comportamiento nuevo?
+2. ¿Se respetan las convenciones de @CONTRIBUTING.md?
+3. ¿Hay algún cambio que rompa la API pública?
+
+Devuelve los hallazgos de más grave a menos, con `archivo:línea`.</pre>
+        <p>Uso: <code>/revisar-pr 1423</code></p>
+        <h3>Sustituciones en el cuerpo</h3>
+        <div class="tscroll"><table class="mini">
+          <tbody>
+            <tr><td>$ARGUMENTS</td><td>Todo lo que el usuario escribió tras el comando</td></tr>
+            <tr><td>$1, $2, …</td><td>Argumentos posicionales</td></tr>
+            <tr><td>@ruta/archivo</td><td>El contenido de ese archivo</td></tr>
+            <tr><td>!`comando`</td><td>La salida de ese comando de shell, ejecutada al invocar</td></tr>
+            <tr><td>${CLAUDE_PROJECT_DIR}</td><td>Raíz del proyecto</td></tr>
+            <tr><td>${CLAUDE_SKILL_DIR}</td><td>Directorio de la skill (solo en skills)</td></tr>
+          </tbody>
+        </table></div>
+        <h3>Frontmatter soportado</h3>
+        <div class="tscroll"><table class="mini">
+          <tbody>
+            <tr><td>name</td><td>Nombre visible; por defecto, el del archivo</td></tr>
+            <tr><td>description</td><td>Resumen de una línea, visible en el listado y en la tool Skill</td></tr>
+            <tr><td>model</td><td><code>haiku</code>, <code>sonnet</code>, <code>opus</code>, <code>fable</code>, un ID completo, o <code>inherit</code></td></tr>
+            <tr><td>effort</td><td><code>low</code>, <code>medium</code>, <code>high</code>, <code>max</code>, o un entero</td></tr>
+            <tr><td>allowed-tools</td><td>Tools disponibles mientras el archivo está activo</td></tr>
+            <tr><td>disallowed-tools</td><td>Tools retiradas mientras está activo</td></tr>
+            <tr><td>argument-hint</td><td>Texto de ayuda tras el nombre del comando</td></tr>
+            <tr><td>when_to_use</td><td>Guía para que <strong>el modelo</strong> sepa cuándo invocarla</td></tr>
+            <tr><td>disable-model-invocation</td><td><code>true</code> → solo tú puedes invocarlo</td></tr>
+            <tr><td>user-invocable</td><td><code>false</code> → lo oculta; solo el modelo puede usarlo</td></tr>
+            <tr><td>context</td><td><code>fork</code> → se ejecuta con una copia del contexto</td></tr>
+            <tr><td>agent</td><td>Tipo de subagente que lo ejecuta</td></tr>
+            <tr><td>background</td><td>Se ejecuta en background</td></tr>
+            <tr><td>paths</td><td>Lo limita a ciertas rutas del proyecto</td></tr>
+            <tr><td>hooks</td><td>Hooks propios del comando</td></tr>
+            <tr><td>shell</td><td><code>bash</code> o <code>powershell</code> para los bloques <code>!</code></td></tr>
+          </tbody>
+        </table></div>
+        <p>Tras crear o editar un archivo, <code>/reload-skills</code> lo recoge sin reiniciar. <strong>Cuándo merece la pena:</strong> cuando escribas el mismo prompt por tercera vez — el ritual de deploy, la checklist de revisión del equipo, traducir un ticket a un plan.</p>
+        <h3>Eventos de hook disponibles</h3>
+<pre>PreToolUse        PostToolUse       UserPromptSubmit   Notification
+Stop              SubagentStart     SubagentStop       TaskCompleted
+SessionStart      SessionEnd        PreCompact         PostCompact
+PermissionDenied  Elicitation       FileChanged</pre>
+        <p>Los modos de permiso son <code>default</code>, <code>acceptEdits</code>, <code>plan</code> y <code>bypassPermissions</code>. Se ciclan con <kbd>Shift</kbd>+<kbd>Tab</kbd>.</p>
+      </div>
+    </section>
+
+    <section class="group">
+      <div class="ghead"><span class="gnum">F</span><h2>Rutinas que funcionan</h2></div>
+      <div class="prose">
+<pre><b>Repo nuevo</b>
+  /init  →  /permissions  →  /doctor
+
+<b>Empezar una tarea no trivial</b>
+  /clear  →  /plan &lt;descripción&gt;  →  aprobar  →  trabajar  →  /diff
+
+<b>Cerrar trabajo</b>
+  /code-review  →  /simplify  →  /run  →  /commit  →  /pr
+
+<b>Va lento o responde peor</b>
+  /context  →  /skill-doctor  →  /compact "qué conservar"   (o /clear)
+
+<b>Algo está roto en la herramienta</b>
+  /doctor  →  /status  →  /mcp reconnect  →  claude --bare (para aislar)
+
+<b>Mantenimiento mensual</b>
+  /doctor  →  /insights  →  /skill-doctor  →  /usage</pre>
+      </div>
+    </section>
+
+    <section class="group">
+      <div class="ghead"><span class="gnum">G</span><h2>Flags del CLI</h2></div>
+      <div class="prose">
+<pre>claude                                   sesión interactiva
+claude "arregla el test que falla"       arranca con un prompt
+claude -c                                continúa la conversación más reciente aquí
+claude -p "lista los TODO"               no interactivo: imprime y sale
+claude --model opus                      fija el modelo
+claude --effort high                     fija el esfuerzo
+claude --add-dir ../shared ../types      directorios extra accesibles
+claude --agent reviewer                  arranca con un agente concreto
+claude --bg "corre la suite completa"    agente en background
+claude --cloud "migra el módulo X"       sesión en la nube
+claude --autocompact 400k                ventana de auto-compact
+claude -d api,hooks                      debug filtrado por categoría
+claude --debug-file ./claude-debug.log   logs de debug a un archivo
+claude --chrome                          habilita Claude in Chrome
+claude --import codex                    importa config de otro agente
+claude <b>--bare</b>                            modo mínimo: sin hooks, LSP, memoria ni CLAUDE.md
+claude --disable-slash-commands          desactiva todas las skills
+claude --dangerously-skip-permissions    ⚠ solo en sandbox sin red</pre>
+        <p><strong><code>--bare</code> es el modo diagnóstico:</strong> si un problema desaparece con <code>--bare</code>, la causa es un hook, un plugin, el LSP o un <code>CLAUDE.md</code>. Otros subcomandos: <code>claude doctor</code>, <code>claude agents</code>, <code>claude plugin</code>, <code>claude mcp</code>.</p>
+      </div>
+    </section>
+  </div>
+</main>
+<section class="closing grid-dark">
+  <svg viewBox="-0.6 -0.2 22.1 24.9" class="ghost" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-5.0631132,-80.023416)"><g id="g20-4" transform="matrix(0.254887,0,0,0.254887,-24.0535,72.406391)" style="fill:currentColor"><path id="rect9-7-8" style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" d="m 154.92617,77.025871 -6.00686,3.50418 v 6.99957 l 6.00686,-3.50366 11.99979,6.99957 v 0.26304 h -0.0274 v 36.484589 l 6.0017,-3.47989 V 113.9399 l 0.0258,-0.015 v -5.39915 -13.386779 -7.61297 z" /><path id="path7-4-1-2-5-2-5-4-3" style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" d="m 154.91576,56.043041 -17.99993,10.50013 v 5.41776 l -0.002,-0.001 v 7.00009 l 0.002,0.001 v 8.5819 l 0.002,10e-4 v 13.952629 l -4.68447,2.73265 -12.0003,-7.000089 v -14.00018 l 10.681,-6.23011 v -7.00009 l -16.68064,9.73068 v 20.999749 l 17.99994,10.50013 10.64999,-6.21254 V 77.860791 h 0.0326 v -3.4432 h 0.004 v -4.377 l 11.99668,-6.9975 6.0017,3.50107 v -7.00009 z" /><path id="path7-4-1-2-01-6-9" style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" d="m 154.90956,29.88391 -17.99994,10.500131 v 19.23294 l 5.99964,-3.51658 v -12.21683 l 12.0003,-6.999571 11.99978,6.999571 v 4.11345 h -10e-4 v 9.88725 l -0.009,0.005 v 7.00008 l 0.009,-0.005 v 12.14758 l 6.00118,3.51761 v -19.16575 -13.38678 -7.61298 z" /><path id="path7-4-6-7-0-0" style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" d="m 178.92313,70.052921 v 7.00008 l 10.62726,6.19911 v 14.00018 l -7.62744,4.449339 v 7.00009 l 13.62759,-7.94939 V 79.752581 Z" /></g></g></svg>
+  <div class="wrap closing-inner">
+    <p class="eyebrow on-dark">OA2P Solutions</p>
+    <h2>Ingeniería tecnológica que potencia negocios.</h2>
+    <p class="tagline">Software, automatización e inteligencia artificial a la medida para optimizar operaciones y escalar empresas.</p>
+  </div>
+  <div class="wrap">
+    <div class="footrow">
+      <svg class="logo" role="img" aria-label="OA2P Solutions" viewBox="0 0 91.486809 24.950699" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs1" /><g id="layer1" transform="translate(-5.0631132,-80.023416)"><path style="fill:currentColor;stroke-width:1.43661" d="m 30.676282,101.50387 c -0.371733,-0.0677 -0.905441,-0.32594 -0.905441,-0.43827 0,-0.0576 0.05153,-0.1753 0.114669,-0.26151 0.108285,-0.14805 0.13188,-0.14819 0.423983,-0.002 0.737894,0.36811 1.634468,0.21591 1.634468,-0.27748 0,-0.23089 -0.119241,-0.29032 -1.312897,-0.65454 -0.473066,-0.144334 -0.565068,-0.210361 -0.711873,-0.510925 -0.236986,-0.485159 -0.06929,-0.939075 0.43928,-1.188433 0.445037,-0.218265 1.31068,-0.229081 1.793843,-0.0224 0.337286,0.144264 0.358838,0.252212 0.115481,0.578588 -0.007,0.01045 -0.175276,-0.03888 -0.372557,-0.109213 -0.440522,-0.156904 -0.86584,-0.168916 -1.164373,-0.03285 -0.530017,0.241489 -0.348114,0.651243 0.377745,0.850915 1.078476,0.296676 1.29912,0.40871 1.432219,0.727308 0.178189,0.42641 0.007,0.90683 -0.410358,1.15353 -0.26289,0.15529 -1.063922,0.25874 -1.45412,0.18779 z m 8.019034,-0.0455 c -1.026574,-0.24062 -1.598072,-1.40861 -1.17945,-2.41049 0.290316,-0.694835 0.84568,-1.031889 1.704035,-1.034187 1.199157,-0.0035 1.869028,0.618792 1.869028,1.735499 0,0.906888 -0.490185,1.525738 -1.355492,1.711328 -0.525212,0.11257 -0.548645,0.11257 -1.038121,-0.002 z m 1.263361,-0.66061 c 0.707115,-0.46332 0.671183,-1.718532 -0.06,-2.096659 -0.900299,-0.465568 -1.888224,0.106312 -1.888224,1.093077 0,0.939762 1.145281,1.529712 1.948262,1.003582 z m 14.64632,0.67779 c -0.851252,-0.21208 -1.058456,-0.64569 -1.062866,-2.224354 l -0.0023,-1.177082 0.283631,-0.02762 0.283642,-0.02762 0.03575,1.222625 c 0.03331,1.138161 0.0506,1.238481 0.251482,1.452271 0.266732,0.28392 0.732114,0.38159 1.097347,0.2303 0.48451,-0.20069 0.538153,-0.36945 0.538153,-1.693098 v -1.202209 h 0.323579 0.323591 l -0.02936,1.306618 c -0.026,1.160249 -0.05072,1.335229 -0.219855,1.561889 -0.370061,0.49574 -1.154043,0.74455 -1.821814,0.5782 z m 21.490337,-0.0272 c -1.320731,-0.34949 -1.643556,-2.362489 -0.500213,-3.119127 1.036126,-0.685667 2.550145,-0.283759 2.898457,0.76944 0.502603,1.519707 -0.781255,2.777577 -2.398244,2.349687 z m 1.349502,-0.65106 c 0.356308,-0.23346 0.530621,-0.57779 0.530621,-1.04815 0,-0.552986 -0.20999,-0.872955 -0.721333,-1.099147 -0.517853,-0.229082 -0.955869,-0.151808 -1.38887,0.244994 -0.302665,0.277363 -0.324055,0.332805 -0.324055,0.8399 0,0.453383 0.03737,0.583373 0.226366,0.788123 0.456411,0.4944 1.164582,0.61021 1.677271,0.27428 z m 14.954822,0.63726 c -0.568921,-0.15797 -0.666482,-0.25759 -0.534938,-0.54628 0.0983,-0.21577 0.111999,-0.21893 0.377605,-0.0865 0.672007,0.33523 1.646283,0.21448 1.707656,-0.21166 0.03586,-0.24943 -0.233968,-0.42298 -0.888367,-0.57132 -0.96635,-0.219047 -1.332941,-0.556449 -1.238305,-1.13968 0.09772,-0.602404 0.540927,-0.883482 1.383253,-0.87733 0.792142,0.0058 1.237597,0.166873 1.161286,0.419979 -0.09355,0.310348 -0.154698,0.332643 -0.537828,0.196213 -0.472914,-0.168405 -0.807171,-0.167917 -1.135091,0.0012 -0.56292,0.291105 -0.269877,0.666482 0.702554,0.899939 1.004987,0.241268 1.388917,0.725719 1.083212,1.366819 -0.258062,0.54115 -1.206515,0.79096 -2.081037,0.54813 z M 46.068886,99.749173 V 98.02882 h 0.316917 0.316894 v 1.448723 1.448707 h 0.950728 0.950716 v 0.27163 0.27165 h -1.267622 -1.267633 z m 16.569687,0.271637 v -1.448719 h -0.588535 -0.588547 v -0.27163 -0.271641 h 1.500011 1.499999 l -0.02855,0.249009 c -0.02739,0.238622 -0.05211,0.250112 -0.594547,0.275948 l -0.565915,0.02693 v 1.444393 1.44441 h -0.316893 -0.316929 z m 6.609772,-0.271637 V 98.02882 h 0.316905 0.316905 v 1.720353 1.720357 H 69.56525 69.248345 Z m 14.306073,0 V 98.02882 h 0.269251 c 0.232424,0 0.3853,0.139355 1.117519,1.018635 1.237701,1.486255 1.148485,1.476605 1.148485,0.124267 V 98.02882 h 0.316905 0.316894 v 1.720353 1.720357 l -0.294262,-0.006 c -0.262055,-0.006 -0.383513,-0.11525 -1.109174,-1.00111 -1.228068,-1.499249 -1.131818,-1.487468 -1.131818,-0.13847 V 101.47 h -0.316894 -0.316906 z" id="path3" /><path style="fill:currentColor;stroke:none;stroke-width:1.12431" d="m 32.799189,92.221836 c -1.438144,-0.376607 -2.36348,-1.357879 -2.636112,-2.795495 -0.114215,-0.602267 -0.114215,-3.171641 0,-3.773918 0.273446,-1.441884 1.253442,-2.444755 2.77141,-2.836134 0.762893,-0.19669 6.716361,-0.201991 7.544638,-0.0066 1.502032,0.354128 2.51533,1.341734 2.812498,2.741175 0.151576,0.713854 0.127281,3.4622 -0.03618,4.089696 -0.270003,1.036604 -0.888294,1.82079 -1.799772,2.282666 -0.842454,0.426912 -1.336588,0.47537 -4.810798,0.471785 -2.875264,-0.0033 -3.26276,-0.02045 -3.845704,-0.173066 z m 7.056717,-1.527943 c 0.664077,-0.197207 1.11104,-0.565918 1.400388,-1.155207 0.245719,-0.500402 0.250305,-0.536982 0.241595,-1.927756 -0.0055,-0.849272 -0.05345,-1.57661 -0.119868,-1.814058 -0.15019,-0.536477 -0.599704,-1.036241 -1.159562,-1.289208 -0.45983,-0.207765 -0.488711,-0.209525 -3.442162,-0.209525 -3.229051,0 -3.322799,0.01155 -3.985379,0.491538 -0.668399,0.48418 -0.787365,0.900304 -0.7861,2.749699 10e-4,1.39854 0.02123,1.621393 0.179775,1.971034 0.282079,0.622184 0.74511,1.007172 1.481861,1.232095 0.441915,0.134914 5.710815,0.09349 6.189452,-0.04861 z m 8.053686,1.632601 c -0.04069,-0.06587 0.727677,-1.259843 4.612897,-7.168326 0.512699,-0.779687 1.034294,-1.579381 1.159111,-1.777105 0.348772,-0.552467 0.664747,-0.702833 1.477716,-0.703217 1.053848,-5.07e-4 1.126941,0.05499 2.172937,1.649647 0.495057,0.754744 1.860031,2.825257 3.033285,4.60114 1.196032,1.810419 2.112602,3.282414 2.086382,3.350745 -0.03597,0.09393 -0.268319,0.12187 -1.011582,0.12187 H 60.475519 L 59.68402,91.218634 58.892508,90.03602 h -2.752712 c -1.914109,0 -2.770948,-0.02948 -2.812521,-0.09678 -0.03289,-0.05324 -0.07995,-0.347826 -0.104593,-0.654683 -0.04344,-0.542756 -0.03838,-0.560398 0.191729,-0.647864 0.137906,-0.05246 1.113657,-0.08996 2.340538,-0.08996 1.22928,0 2.091892,-0.03322 2.074823,-0.07985 -0.07369,-0.201386 -2.577579,-3.949042 -2.638717,-3.949404 -0.0562,-3.31e-4 -4.106645,6.055473 -4.938629,7.383877 -0.126917,0.202629 -0.274139,0.397384 -0.32716,0.432775 -0.135299,0.09029 -1.959409,0.08336 -2.015698,-0.0077 z m 20.30587,-0.05026 c -0.02661,-0.06951 -0.03519,-0.82863 -0.01892,-1.686987 0.03343,-1.758419 0.148419,-2.14455 0.812473,-2.727603 0.854848,-0.750565 1.221503,-0.818863 4.734921,-0.88197 2.781859,-0.05004 2.998664,-0.06521 3.285043,-0.231675 0.837164,-0.486523 0.806732,-1.8198 -0.05181,-2.270227 -0.329195,-0.172703 -0.503724,-0.1806 -4.528707,-0.204763 l -4.186326,-0.02508 0.0253,-0.763279 0.0253,-0.76329 4.117247,-0.0232 c 4.445759,-0.02497 4.686926,-0.0066 5.556797,0.428255 0.988609,0.494023 1.356428,1.179424 1.360762,2.535753 0.0022,0.860502 -0.01573,0.962575 -0.261414,1.442917 -0.306022,0.598373 -0.869697,1.073129 -1.563478,1.316835 -0.387507,0.136123 -0.868322,0.164806 -3.472032,0.20715 -3.001997,0.04883 -3.02518,0.05059 -3.460243,0.268143 -0.555678,0.277844 -0.744296,0.627188 -0.744483,1.378962 l -1.32e-4,0.546748 4.708559,0.02266 4.70857,0.02266 v 0.744615 0.744615 l -5.499476,0.02254 c -4.72422,0.01935 -5.506305,0.0044 -5.547955,-0.103826 z m 17.369311,0.06665 c -0.03211,-0.03211 -0.0584,-0.881618 -0.0584,-1.887778 0,-2.03369 0.04102,-2.220503 0.548992,-2.498095 0.25432,-0.138994 0.663899,-0.159253 4.012874,-0.198582 l 3.729641,-0.04377 0.352027,-0.233093 c 0.474876,-0.314437 0.642212,-0.697434 0.642212,-1.469962 0,-0.796658 -0.190399,-1.195515 -0.713678,-1.495081 L 93.717105,84.2982 89.643641,84.25443 85.570178,84.21066 v -0.744604 -0.744615 l 3.942058,-0.02584 c 4.274266,-0.02804 4.643857,4.5e-4 5.479162,0.422118 1.172936,0.592093 1.736512,1.912524 1.508829,3.535095 -0.164465,1.172022 -0.708387,1.953493 -1.675163,2.406756 l -0.494761,0.231961 -3.477927,0.04377 c -2.533609,0.0319 -3.506358,0.07226 -3.582684,0.148705 -0.0705,0.07061 -0.110289,0.543053 -0.121782,1.445424 -0.0088,0.73728 -0.0232,1.370078 -0.03091,1.406206 -0.01705,0.08127 -1.451506,0.0881 -1.532266,0.0077 z" id="path2" /><g id="g20-4" transform="matrix(0.254887,0,0,0.254887,-24.0535,72.406391)" style="fill:currentColor"><path id="rect9-7-8" style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" d="m 154.92617,77.025871 -6.00686,3.50418 v 6.99957 l 6.00686,-3.50366 11.99979,6.99957 v 0.26304 h -0.0274 v 36.484589 l 6.0017,-3.47989 V 113.9399 l 0.0258,-0.015 v -5.39915 -13.386779 -7.61297 z" /><path id="path7-4-1-2-5-2-5-4-3" style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" d="m 154.91576,56.043041 -17.99993,10.50013 v 5.41776 l -0.002,-0.001 v 7.00009 l 0.002,0.001 v 8.5819 l 0.002,10e-4 v 13.952629 l -4.68447,2.73265 -12.0003,-7.000089 v -14.00018 l 10.681,-6.23011 v -7.00009 l -16.68064,9.73068 v 20.999749 l 17.99994,10.50013 10.64999,-6.21254 V 77.860791 h 0.0326 v -3.4432 h 0.004 v -4.377 l 11.99668,-6.9975 6.0017,3.50107 v -7.00009 z" /><path id="path7-4-1-2-01-6-9" style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" d="m 154.90956,29.88391 -17.99994,10.500131 v 19.23294 l 5.99964,-3.51658 v -12.21683 l 12.0003,-6.999571 11.99978,6.999571 v 4.11345 h -10e-4 v 9.88725 l -0.009,0.005 v 7.00008 l 0.009,-0.005 v 12.14758 l 6.00118,3.51761 v -19.16575 -13.38678 -7.61298 z" /><path id="path7-4-6-7-0-0" style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" d="m 178.92313,70.052921 v 7.00008 l 10.62726,6.19911 v 14.00018 l -7.62744,4.449339 v 7.00009 l 13.62759,-7.94939 V 79.752581 Z" /></g></g></svg>
+      <span class="ver">Claude Code 2.1.247 · darwin arm64</span>
+    </div>
+    <div class="colofon">
+      <p>Generado a partir del binario de Claude Code <strong>2.1.247</strong> instalado en la máquina. Si actualizas la versión, la lista puede cambiar: <code>/help</code> es siempre la fuente de verdad de lo que tienes disponible.</p>
+      <p class="lab">Alias reconocidos</p>
+      <p class="mono">/allowed-tools→/permissions · /android,/ios→/mobile · /app→/desktop · /bashes→/tasks · /bg→/background · /breaks,/downtime→/wellbeing · /checkup→/doctor · /checkpoint,/undo→/rewind · /continue→/resume · /cost,/stats→/usage · /marketplace,/plugins→/plugin · /memory-pause,/toggle-memory→/pause-memory · /name→/rename · /new,/reset→/clear · /peers→/list-agents · /quit→/exit · /rc→/remote-control · /remote→/session · /restart→/update · /routines→/schedule · /settings→/config · /share→/bug · /tp→/teleport</p>
+      <p><code>/vim</code> y <code>/output-style</code> se movieron a <code>/config</code>. <code>/agents</code> fue retirado: pide a Claude que gestione los subagentes, o edita <code>.claude/agents/</code>.</p>
+    </div>
+  </div>
+</section>
+<script>
+const G = [
+ {t:'Sesión y contexto', note:'Lo que decides varias veces al día: cuándo empezar limpio, cuándo resumir y cuándo deshacer.', r:[
+  {n:'/clear', arg:' [nombre]', a:'/reset · /new', g:['core'], w:'Nueva sesión con contexto vacío. La anterior <strong>queda en disco</strong> y se recupera con /resume.', ex:['/clear','/clear refactor-auth'], q:'Al cambiar de tarea. Es la opción por defecto: más barato y más fiable que arrastrar contexto irrelevante.'},
+  {n:'/compact', arg:' [instrucciones]', a:'', g:['core'], w:'Resume la conversación hasta aquí para liberar contexto, <strong>sin perder el hilo</strong>.', ex:['/compact','/compact conserva los nombres de archivo y el esquema, olvida la exploración'], q:'Estás en medio de una tarea larga y el contexto se llena. Con instrucciones explícitas el resumen es mucho mejor.'},
+  {n:'/autocompact', arg:' [auto|tokens]', a:'', g:[], w:'Configura a qué nivel de llenado se auto-resume la conversación.', ex:['/autocompact auto','/autocompact 400k'], q:'Si el auto-compact te corta demasiado pronto, súbelo. Si prefieres compactar antes para tener respuestas más rápidas, bájalo.'},
+  {n:'/context', arg:' [all]', a:'', g:['core'], w:'Cuadrícula de colores con el uso de contexto por categoría.', ex:['/context','/context all'], q:'Antes de empezar algo grande, o cuando notas que responde peor. Te dice si el problema es el contexto lleno o son las skills y los MCP comiéndoselo.'},
+  {n:'/resume', arg:' [id o texto]', a:'/continue', g:['core'], w:'Reanuda una conversación anterior; busca por texto libre.', ex:['/resume','/resume migración prisma'], q:'Retomar el trabajo de ayer sin re-explicar nada.'},
+  {n:'/rewind', arg:'', a:'/checkpoint · /undo', g:['core','warn'], w:'Restaura <strong>el código y/o la conversación</strong> a un punto anterior. Es el ctrl+Z real: revierte archivos, no solo el chat.', ex:['/rewind'], q:'Claude hizo cambios que no querías. Puedes elegir revertir solo código, solo conversación, o ambos.'},
+  {n:'/branch', arg:' [nombre]', a:'', g:[], w:'Crea una rama de la conversación en este punto. La original sigue intacta.', ex:['/branch probar-con-redis'], q:'Quieres explorar una alternativa sin perder el hilo actual.'},
+  {n:'/fork', arg:' [prompt]', a:'', g:['cloud'], w:'Copia la conversación a una sesión en background y tú sigues aquí.', ex:['/fork escribe los tests de todo lo que acabamos de tocar'], q:'Delegar la parte mecánica con el contexto completo mientras tú avanzas en otra cosa.'},
+  {n:'/subtask', arg:' <tarea>', a:'', g:[], w:'Manda un subagente con tu contexto completo; el resultado vuelve a este chat.', ex:['/subtask audita todos los usos de fetch() y dime cuáles no manejan errores'], q:'Trabajo de lectura pesado cuyo resultado quieres aquí, pero cuyo ruido no quieres en tu contexto.'},
+  {n:'/btw', arg:' [pregunta]', a:'', g:['cond'], w:'Pregunta lateral rápida <strong>sin interrumpir</strong> la conversación principal.', ex:['/btw qué hace exactamente git restore --staged'], q:'Duda tangencial a mitad de una tarea; no contamina el hilo.'},
+  {n:'/recap', arg:'', a:'', g:[], w:'Genera un resumen de una línea de la sesión.', ex:['/recap'], q:'Antes de cerrar, para dejar rastro de en qué ibas.'},
+  {n:'/export', arg:' [archivo]', a:'', g:[], w:'Exporta la conversación a un archivo o al portapapeles.', ex:['/export','/export debug-sesion.md'], q:'Compartir el razonamiento con un compañero o adjuntarlo a un ticket.'},
+  {n:'/copy', arg:' [N]', a:'', g:[], w:'Copia la última respuesta al portapapeles, o la N-ésima más reciente.', ex:['/copy','/copy 3'], q:'Pegar un bloque de código o una explicación en Slack o Jira.'},
+  {n:'/rename', arg:' [nombre]', a:'/name', g:[], w:'Renombra la conversación.', ex:['/rename fix-login-safari'], q:'Para encontrarla luego con /resume.'},
+  {n:'/focus', arg:'', a:'', g:[], w:'Vista enfocada: solo tu prompt, el resumen y la respuesta.', ex:['/focus'], q:'Sesiones muy largas donde el ruido de las herramientas te distrae.'},
+  {n:'/brief', arg:'', a:'', g:['cond'], w:'Modo brief-only: respuestas mínimas.', ex:['/brief'], q:'Tareas mecánicas donde no quieres explicaciones.'},
+  {n:'/diff', arg:'', a:'', g:[], w:'Panel de cambios sin commitear y diffs por turno.', ex:['/diff'], q:'Revisar qué tocó Claude antes de aceptar o commitear.'},
+  {n:'/pause-memory', arg:'', a:'/memory-pause · /toggle-memory', g:[], w:'Pausa la automemoria en esta sesión.', ex:['/pause-memory'], q:'Trabajo exploratorio o desechable que no quieres que se recuerde.'},
+  {n:'/stop', arg:'', a:'', g:['cond','cloud'], w:'Detiene esta sesión de background; se conservan transcript y worktree.', ex:['/stop'], q:'Solo aparece dentro de una sesión en background.'}
+ ]},
+ {t:'Modelo, esfuerzo y planificación', note:'Aquí se decide la relación entre calidad, velocidad y coste. Revisa el gasto con /usage.', r:[
+  {n:'/model', arg:' [modelo]', a:'', g:['core'], w:'Fija el modelo de la sesión.', ex:['/model','/model opus','/model claude-sonnet-5'], q:'Opus para diseño y depuración difícil; Sonnet para volumen; Haiku para tareas mecánicas.'},
+  {n:'/effort', arg:' [nivel]', a:'', g:['core'], w:'Nivel de razonamiento: <code>low</code>, <code>medium</code>, <code>high</code>, <code>xhigh</code>, <code>max</code>.', ex:['/effort high','/effort low'], q:'Sube a high o max en bugs de concurrencia y decisiones de arquitectura; baja a low en renombrados y formateos: más rápido y más barato.'},
+  {n:'/fast', arg:' [on|off]', a:'', g:[], w:'Modo rápido: <strong>el mismo Opus</strong> con salida más rápida, no degrada a un modelo menor.', ex:['/fast on'], q:'Iteración conversacional donde la latencia molesta más que la profundidad.'},
+  {n:'/advisor', arg:' [modelo|off]', a:'', g:['cond'], w:'Deja que Claude consulte un modelo más fuerte en los momentos clave.', ex:['/advisor'], q:'Sesión larga con un modelo rápido donde quieres una segunda opinión solo en las decisiones importantes.'},
+  {n:'/plan', arg:' [open|share|desc]', a:'', g:['core'], w:'Activa plan mode o muestra el plan de la sesión. También con <kbd>Shift</kbd>+<kbd>Tab</kbd>.', ex:['/plan','/plan migrar el módulo de pagos a Stripe v3','/plan share'], q:'Antes de cualquier cambio no trivial. En plan mode Claude investiga y propone, sin escribir.'},
+  {n:'/goal', arg:' [condición|clear]', a:'', g:[], w:'Fija un objetivo que Claude comprueba <strong>antes de parar</strong>.', ex:['/goal los tests de integración pasan en verde','/goal clear'], q:'Tarea con criterio de éxito verificable y varios intentos previsibles. Evita el "¿sigo?" cada dos minutos.'},
+  {n:'/ultraplan', arg:' <prompt>', a:'', g:['cond','cloud'], w:'Claude Code en la web redacta un plan editable que puedes aprobar o traer de vuelta.', ex:['/ultraplan rediseñar el sistema de colas'], q:'Planificación grande que quieres revisar con calma y compartir. Corre en la nube y tú sigues trabajando.'},
+  {n:'/ultrareview', arg:'', a:'', g:['cond','cloud'], w:'Busca y <strong>verifica</strong> bugs de tu rama en la nube.', ex:['/ultrareview'], q:'Antes de un PR importante. Más exhaustivo que /code-review local.'}
+ ]},
+ {t:'Configuración, permisos y hooks', note:'La inversión con mejor retorno del día: dejar de aprobar lo mismo veinte veces.', r:[
+  {n:'/config', arg:' [key=value]', a:'/settings', g:['core'], w:'Abre los ajustes, o fija uno directamente. Aquí viven el editor mode (antes /vim), el output style y el tamaño de los workflows.', ex:['/config','/config theme=dark'], q:'Punto de entrada a casi todo.'},
+  {n:'/permissions', arg:' [open|share|desc]', a:'/allowed-tools', g:['core'], w:'Gestiona reglas allow y deny de herramientas. <code>share</code> genera reglas para el equipo.', ex:['/permissions','/permissions permite npm test y npm run lint'], q:'Cuando te cansas de aprobar lo mismo.'},
+  {n:'/hooks', arg:' [nombre]', a:'', g:[], w:'Ver la configuración de hooks por evento.', ex:['/hooks'], q:'Diagnosticar por qué algo se dispara automáticamente, o por qué no lo hace.'},
+  {n:'/update-config', arg:'', a:'', g:['skill'], w:'Skill que <strong>edita settings.json por ti</strong>: hooks, permisos, variables de entorno.', ex:['/update-config cuando termines un turno, ejecuta npm run lint','/update-config permite todos los comandos bq'], q:'Automatizaciones del tipo "cada vez que X, haz Y". Eso requiere un hook, y esta skill lo escribe bien.'},
+  {n:'/fewer-permission-prompts', arg:'', a:'', g:['skill'], w:'Analiza tus transcripts y propone una allowlist priorizada en .claude/settings.json.', ex:['/fewer-permission-prompts'], q:'Si apruebas permisos todo el día. Automatiza lo que harías a mano con /permissions.'},
+  {n:'/sandbox', arg:'', a:'', g:['cond'], w:'Estado y configuración del sandbox de ejecución.', ex:['/sandbox'], q:'Verificar si los comandos corren aislados antes de dar permisos amplios.'},
+  {n:'/statusline', arg:'', a:'', g:['skill'], w:'Configura la línea de estado: crea el script y lo escribe en settings.', ex:['/statusline muestra la rama de git y el modelo'], q:'Ver rama, modelo o contexto sin ejecutar comandos.'},
+  {n:'/keybindings', arg:'', a:'', g:[], w:'Abre tu archivo de atajos: ~/.claude/keybindings.json.', ex:['/keybindings'], q:'Rebindear teclas.'},
+  {n:'/keybindings-help', arg:'', a:'', g:['skill'], w:'Ayuda guiada para escribir atajos, incluidos los chords.', ex:['/keybindings-help quiero ctrl+s para stash'], q:'Cuando no sabes la sintaxis del JSON.'},
+  {n:'/theme', arg:'', a:'', g:[], w:'Cambia el tema de colores.', ex:['/theme'], q:'—'},
+  {n:'/tui', arg:' [default|fullscreen]', a:'', g:[], w:'Renderer de la interfaz de terminal.', ex:['/tui fullscreen'], q:'fullscreen da una experiencia tipo aplicación; default respeta el scroll del terminal.'},
+  {n:'/color', arg:' [color|default]', a:'', g:[], w:'Color de la barra de prompt <strong>de esta sesión</strong>.', ex:['/color red'], q:'Distinguir de un vistazo varias terminales abiertas: prod contra local.'},
+  {n:'/scroll-speed', arg:'', a:'', g:[], w:'Velocidad de la rueda del ratón.', ex:['/scroll-speed'], q:'—'},
+  {n:'/terminal-setup', arg:'', a:'', g:[], w:'Configura tu terminal, por ejemplo Option+Enter para saltos de línea.', ex:['/terminal-setup'], q:'Recién instalado, si Shift+Enter no funciona.'},
+  {n:'/voice', arg:' [hold|tap|off]', a:'', g:[], w:'Activa o desactiva el modo voz; se habla pulsando <kbd>Espacio</kbd>.', ex:['/voice tap','/voice off'], q:'Dictar prompts largos en lugar de teclearlos.'},
+  {n:'/wellbeing', arg:'', a:'/breaks · /downtime', g:[], w:'Recordatorios de descanso y horas de silencio.', ex:['/wellbeing'], q:'Sesiones maratonianas.'},
+  {n:'/privacy-settings', arg:'', a:'', g:[], w:'Ver y actualizar tus ajustes de privacidad.', ex:['/privacy-settings'], q:'Antes de trabajar con código sensible.'},
+  {n:'/auto-mode-setup', arg:'', a:'', g:['cond'], w:'Enseña al auto mode cómo es tu entorno y ajusta reglas.', ex:['/auto-mode-setup'], q:'Solo si usas auto mode.'}
+ ]},
+ {t:'Proyecto, memoria y directorios', note:'', r:[
+  {n:'/init', arg:'', a:'', g:['core','skill'], w:'Crea un CLAUDE.md documentando el codebase y, según versión, skills y hooks opcionales.', ex:['/init'], q:'Primer comando en un repo nuevo. Evita re-explicar la arquitectura en cada sesión.'},
+  {n:'/memory', arg:'', a:'', g:[], w:'Edita los CLAUDE.md y los ajustes de memoria.', ex:['/memory'], q:'Añadir convenciones del proyecto: "usamos pnpm", "no toques /legacy".'},
+  {n:'/add-dir', arg:' <ruta>', a:'', g:[], w:'Añade otro directorio de trabajo a la sesión.', ex:['/add-dir ../shared-types','/add-dir ~/Developments/api'], q:'Monorepos o cambios que cruzan dos repos. Sin esto, Claude no puede leer fuera del cwd.'},
+  {n:'/cd', arg:' <ruta>', a:'', g:[], w:'Mueve la sesión a otro directorio de trabajo.', ex:['/cd packages/web'], q:'Cambiar de subproyecto conservando la conversación.'},
+  {n:'/insights', arg:'', a:'', g:['skill'], w:'Informe analizando tus sesiones de Claude Code.', ex:['/insights'], q:'Retro personal: en qué gastas tiempo y tokens.'},
+  {n:'/team-onboarding', arg:'', a:'', g:['skill'], w:'Genera una guía de onboarding a partir de tu uso real.', ex:['/team-onboarding'], q:'Cuando entra gente nueva al equipo.'},
+  {n:'/import', arg:' [codex|gemini] [--dry-run]', a:'', g:[], w:'Importa configuración de otro agente de código.', ex:['/import codex --dry-run','/import gemini'], q:'Migras desde otra herramienta. Usa siempre --dry-run primero.'}
+ ]},
+ {t:'Skills, plugins, MCP y agentes', note:'Cada skill cargada consume contexto. La rutina para recuperarlo es /context → /skill-doctor → /config.', r:[
+  {n:'/skills', arg:'', a:'', g:[], w:'Lista las skills disponibles.', ex:['/skills'], q:'Descubrir qué comandos-skill tienes activos ahora mismo.'},
+  {n:'/skill-doctor', arg:'', a:'', g:[], w:'Muestra qué skills cargadas <strong>no se usan y te están costando contexto</strong>.', ex:['/skill-doctor'], q:'Cuando /context dice que las skills ocupan mucho. Te dice cuáles apagar.'},
+  {n:'/reload-skills', arg:'', a:'', g:['cond'], w:'Recoge skills añadidas o modificadas en disco durante la sesión.', ex:['/reload-skills'], q:'Estás escribiendo una skill y no quieres reiniciar.'},
+  {n:'/plugin', arg:'', a:'/plugins · /marketplace', g:[], w:'Gestiona plugins: instalar, activar, marketplaces.', ex:['/plugin'], q:'Añadir capacidades: GitHub, Prisma, Context7, security-guidance.'},
+  {n:'/reload-plugins', arg:' [--force]', a:'', g:[], w:'Activa cambios de plugins pendientes en la sesión actual.', ex:['/reload-plugins'], q:'Tras instalar un plugin, para no reiniciar.'},
+  {n:'/cloud-plugins', arg:'', a:'', g:[], w:'Decide si las sesiones en la nube usan los plugins de esta máquina.', ex:['/cloud-plugins'], q:'Antes de usar /teleport o /schedule.'},
+  {n:'/plugin-types', arg:' [dir]', a:'', g:[], w:'Escribe claude-code-mcp.d.ts con los tipos de entrada de las tools MCP conectadas.', ex:['/plugin-types'], q:'Desarrollas un plugin y quieres tipado real de las tools MCP.'},
+  {n:'/mcp', arg:' [reconnect|enable|disable]', a:'', g:['core'], w:'Gestiona servidores MCP.', ex:['/mcp','/mcp reconnect github','/mcp disable all'], q:'Un servidor MCP falla, pide auth, o quieres apagar los que no usas para ahorrar contexto.'},
+  {n:'/list-agents', arg:'', a:'/peers', g:[], w:'Lista subagentes, compañeros y otras sesiones de Claude a las que puedes mandar mensajes.', ex:['/list-agents'], q:'Antes de coordinar trabajo entre sesiones.'},
+  {n:'/agents', arg:'', a:'', g:['warn'], w:'<strong>Retirado.</strong> Pide a Claude que cree o gestione subagentes, o edita .claude/agents/.', ex:[], q:'Usa lenguaje natural o edita los ficheros directamente.'},
+  {n:'/run-skill-generator', arg:'', a:'', g:['cond','skill'], w:'Asistente para generar una skill nueva.', ex:['/run-skill-generator'], q:'Crear una skill bien estructurada sin partir de cero.'}
+ ]},
+ {t:'Background, nube y automatización', note:'', r:[
+  {n:'/tasks', arg:'', a:'/bashes', g:['core','cloud'], w:'Ve y gestiona <strong>todo</strong> lo que corre en background: procesos, subagentes, workflows y loops. Aquí también los detienes.', ex:['/tasks'], q:'Cuando has lanzado algo y no sabes si sigue vivo.'},
+  {n:'/background', arg:' [prompt]', a:'/bg', g:['cloud'], w:'Manda esta sesión al background y libera la terminal.', ex:['/background sigue con la migración y avísame'], q:'Tarea larga que no necesita supervisión.'},
+  {n:'/workflows', arg:'', a:'', g:['cloud'], w:'Explora workflows en curso y completados.', ex:['/workflows'], q:'Seguir el progreso de una orquestación multiagente.'},
+  {n:'/loop', arg:' <intervalo> <prompt>', a:'', g:['skill'], w:'Repite un prompt o comando en un intervalo. <strong>Sin intervalo, el modelo se autorregula.</strong>', ex:['/loop 5m /tasks','/loop 10m comprueba si el deploy terminó','/loop vigila el PR y arregla lo que falle'], q:'Vigilar CI, un deploy, una cola. No lo uses para tareas de una sola vez.'},
+  {n:'/loops', arg:' [nombre]', a:'', g:[], w:'Lista, crea y borra loops.', ex:['/loops'], q:'Ver qué loops tienes vivos y matarlos.'},
+  {n:'/schedule', arg:'', a:'/routines', g:['skill','cloud'], w:'Crea y gestiona <strong>agentes en la nube con cron</strong>.', ex:['/schedule cada lunes a las 9 revisa los PRs abiertos','/schedule mañana a las 15h recuérdame verificar el rollback'], q:'Tareas recurrentes, o de una sola vez programadas, que corren aunque tengas el portátil cerrado.'},
+  {n:'/daemon', arg:'', a:'', g:[], w:'Gestiona servicios en background y routines.', ex:['/daemon'], q:'Diagnosticar por qué una routine no se dispara.'},
+  {n:'/teleport', arg:'', a:'/tp', g:['cloud'], w:'Manda esta sesión a la nube, o recupera una de claude.ai.', ex:['/teleport'], q:'Seguir en otro sitio, o soltar una tarea larga y cerrar el portátil.'},
+  {n:'/session', arg:'', a:'/remote', g:['cond','cloud'], w:'Muestra la URL y el QR de la sesión en la nube.', ex:['/session'], q:'Abrir la sesión remota en el móvil.'},
+  {n:'/remote-control', arg:'', a:'/rc', g:['cloud'], w:'Controla esta sesión desde el móvil o claude.ai/code.', ex:['/remote-control'], q:'Lanzas algo largo y quieres supervisarlo desde el teléfono.'},
+  {n:'/remote-env', arg:'', a:'', g:['cond','cloud'], w:'Elige el entorno por defecto de los agentes de nube.', ex:['/remote-env'], q:'Entornos self-hosted (ccpool_...).'},
+  {n:'/autofix-pr', arg:'', a:'', g:['cond','cloud'], w:'Vigila el PR actual y arregla lo que falle.', ex:['/autofix-pr'], q:'CI rojo en un PR y no quieres estar mirando.'},
+  {n:'/workflow-launch-exec', arg:'', a:'', g:['cond','warn'], w:'Interno: ejecuta un handoff de workflow lanzado por el servidor.', ex:[], q:'No lo invoques a mano.'}
+ ]},
+ {t:'Git, PRs y calidad de código', note:'Casi todos requieren estar dentro de un repositorio git. Si no aparecen, es por eso.', r:[
+  {n:'/commit', arg:' [guía]', a:'', g:['core','skill'], w:'Prepara y crea un commit: recoge el contexto de git y aplica el estilo de mensaje, las reglas de staging y la atribución.', ex:['/commit','/commit separa el refactor del fix en dos commits'], q:'Siempre que vayas a commitear. Recoge el diff completo y escribe mejor mensaje que a mano.'},
+  {n:'/pr', arg:'', a:'', g:['skill'], w:'Commit, push y abre el pull request.', ex:['/pr'], q:'Cerrar el trabajo de una rama de un tirón.'},
+  {n:'/code-review', arg:' [objetivo] [nivel] [--comment|--fix]', a:'', g:['core','skill'], w:'Revisa el diff actual, un PR, una rama o una ruta, buscando <strong>bugs</strong> y limpiezas.', ex:['/code-review','/code-review high','/code-review 1423 --comment','/code-review --fix'], q:'Antes de pedir revisión humana. low y medium dan pocos hallazgos de alta confianza; high y max amplían cobertura con hallazgos más inciertos. --comment los publica inline en el PR; --fix los aplica al working tree.'},
+  {n:'/simplify', arg:'', a:'', g:['skill'], w:'Limpia el código cambiado (reutilización, simplificación, eficiencia) <strong>y aplica los arreglos</strong>. No busca bugs.', ex:['/simplify'], q:'Justo después de que algo funcione, antes del commit. Para bugs, /code-review.'},
+  {n:'/security-review', arg:'', a:'', g:['skill'], w:'Revisión de seguridad de los cambios pendientes de la rama.', ex:['/security-review'], q:'Antes de mergear código que toca auth, entrada de usuario, secretos o dependencias.'},
+  {n:'/run', arg:'', a:'', g:['skill'], w:'Arranca y conduce la app del proyecto para <strong>ver el cambio funcionando</strong>.', ex:['/run','/run abre la pantalla de login y hazme una captura'], q:'Confirmar que algo funciona de verdad, no solo que los tests pasan.'},
+  {n:'/debug', arg:'', a:'', g:['cond','skill'], w:'Flujo guiado de depuración.', ex:['/debug el login falla solo en Safari'], q:'Bug reproducible pero de causa desconocida.'}
+ ]},
+ {t:'Cuenta, uso, versiones y diagnóstico', note:'', r:[
+  {n:'/doctor', arg:'', a:'/checkup', g:['core'], w:'Chequea y <strong>arregla</strong> tu setup: instalación, extensiones sin usar, CLAUDE.md duplicados o hinchados, hooks lentos, actualizaciones, permisos.', ex:['/doctor'], q:'Primer comando ante cualquier rareza. También cada pocas semanas como mantenimiento.'},
+  {n:'/status', arg:'', a:'', g:['core'], w:'Estado: versión, modelo, cuenta, conectividad de API y estado de las tools.', ex:['/status'], q:'"¿Estoy en el modelo que creo? ¿Está el MCP conectado?"'},
+  {n:'/usage', arg:'', a:'/cost · /stats', g:['core'], w:'Coste de la sesión, uso del plan y qué está consumiendo tus límites.', ex:['/usage'], q:'Antes de lanzar algo caro, o cuando te acercas al límite.'},
+  {n:'/explain-usage', arg:'', a:'', g:['cond','skill'], w:'Explica en lenguaje natural por qué has gastado lo que has gastado.', ex:['/explain-usage'], q:'El número de /usage te sorprende.'},
+  {n:'/usage-credits', arg:'', a:'', g:['cond'], w:'Configura créditos de uso o pídelos a tu admin al llegar al límite. Antes se llamaba /extra-usage.', ex:['/usage-credits'], q:'Límite alcanzado y necesitas seguir.'},
+  {n:'/upgrade', arg:'', a:'', g:['cond'], w:'Subir a Max: más límite y más Opus.', ex:['/upgrade'], q:'Chocas con los límites a diario.'},
+  {n:'/passes', arg:'', a:'', g:['cond'], w:'Comparte una semana gratis de Claude Code y gana créditos.', ex:['/passes'], q:'Si eres elegible.'},
+  {n:'/rate-limit-options', arg:'', a:'', g:['cond'], w:'Opciones al alcanzar el límite.', ex:[], q:'Aparece solo automáticamente.'},
+  {n:'/login', arg:'', a:'', g:[], w:'Inicia sesión o <strong>cambia de cuenta</strong> de Anthropic.', ex:['/login'], q:'Alternar cuenta personal y de empresa.'},
+  {n:'/logout', arg:'', a:'', g:[], w:'Cierra la sesión de tu cuenta.', ex:['/logout'], q:'Máquina compartida.'},
+  {n:'/version', arg:'', a:'', g:[], w:'Versión que <strong>está corriendo esta sesión</strong>; el autoupdate puede tener otra más nueva descargada.', ex:['/version'], q:'Reportar un bug con precisión.'},
+  {n:'/update', arg:'', a:'/restart', g:[], w:'Cambia a la última versión; la conversación continúa.', ex:['/update'], q:'Hay versión nueva y quieres el fix ya.'},
+  {n:'/install', arg:' [options]', a:'', g:[], w:'Instala la build nativa de Claude Code.', ex:['/install'], q:'Migrar de la instalación npm a la nativa.'},
+  {n:'/release-notes', arg:'', a:'', g:[], w:'Notas de la versión.', ex:['/release-notes'], q:'Tras un /update, para ver qué cambió.'},
+  {n:'/exit', arg:'', a:'/quit', g:[], w:'Sale del CLI. En una sesión de background se <strong>desacopla</strong> y ésta sigue corriendo.', ex:['/exit'], q:'—'},
+  {n:'/heapdump', arg:'', a:'', g:['cond','warn'], w:'Volcado del heap de JS a ~/Desktop.', ex:['/heapdump'], q:'Solo para reportar fugas de memoria a Anthropic.'}
+ ]},
+ {t:'Integraciones y setup', note:'', r:[
+  {n:'/ide', arg:' [open]', a:'', g:[], w:'Gestiona integraciones con IDE y muestra su estado.', ex:['/ide'], q:'VS Code o JetBrains no se conecta.'},
+  {n:'/chrome', arg:'', a:'', g:[], w:'Ajustes de Claude en Chrome.', ex:['/chrome'], q:'Automatizar el navegador. Hay que dar permisos por sitio en la extensión.'},
+  {n:'/claude-in-chrome', arg:'', a:'', g:['skill'], w:'Skill que conduce Chrome: clics, formularios, capturas, consola, red.', ex:['/claude-in-chrome comprueba si el formulario de alta lanza errores en consola'], q:'Depurar front-end en el navegador real, no en tests.'},
+  {n:'/desktop', arg:'', a:'/app', g:[], w:'Continúa la sesión en Claude Desktop.', ex:['/desktop'], q:'Pasar de terminal a app de escritorio.'},
+  {n:'/mobile', arg:'', a:'/ios · /android', g:[], w:'QR para descargar la app móvil.', ex:['/mobile'], q:'—'},
+  {n:'/web-setup', arg:'', a:'', g:[], w:'Configura Claude Code en la web con tu cuenta de GitHub.', ex:['/web-setup'], q:'Requisito para /ultraplan, /ultrareview y /teleport.'},
+  {n:'/install-github-app', arg:'', a:'', g:[], w:'Configura Claude GitHub Actions en un repositorio.', ex:['/install-github-app'], q:'Quieres que Claude revise PRs automáticamente en CI.'},
+  {n:'/install-slack-app', arg:'', a:'', g:['cond'], w:'Instala la app de Claude para Slack.', ex:['/install-slack-app'], q:'Invocar a Claude desde Slack.'},
+  {n:'/setup-bedrock', arg:'', a:'', g:[], w:'Reconfigura autenticación, región o pins de modelo de Amazon Bedrock.', ex:['/setup-bedrock'], q:'Empresa con Bedrock.'},
+  {n:'/setup-vertex', arg:'', a:'', g:[], w:'Reconfigura autenticación, proyecto, región o pins de Google Vertex AI.', ex:['/setup-vertex'], q:'Empresa con Vertex.'},
+  {n:'/setup-cowork', arg:'', a:'', g:['cond','skill'], w:'Configuración de trabajo colaborativo.', ex:['/setup-cowork'], q:'—'},
+  {n:'/claude-api', arg:'', a:'', g:['skill'], w:'Referencia de la Claude API y el SDK: IDs de modelo, precios, streaming, tool use, MCP, caching, tokens.', ex:['/claude-api cuánto cuesta Opus 5 con prompt caching'], q:'Antes de escribir cualquier código que llame a la API. Los precios e IDs de memoria suelen estar desfasados.'}
+ ]},
+ {t:'Artifacts, diseño y visualización', note:'Los Artifacts son páginas web privadas publicadas en claude.ai que puedes compartir. Todos estos comandos son skills.', r:[
+  {n:'/artifacts', arg:'', a:'', g:[], w:'Explora tus artifacts publicados y los compartidos contigo.', ex:['/artifacts'], q:'Recuperar el enlace de algo publicado hace días.'},
+  {n:'/dataviz', arg:'', a:'', g:['core','skill'], w:'Guía de diseño para <strong>cualquier</strong> gráfico, dashboard o visualización, en cualquier medio: HTML, SVG, matplotlib, Recharts, d3.', ex:['/dataviz'], q:'Antes de escribir la primera línea de código de un gráfico. Paletas accesibles, elección de tipo de gráfico, ejes, leyendas, light y dark.'},
+  {n:'/design', arg:'', a:'', g:['skill'], w:'Crea un design canvas: diseño multi-artboard publicado como Artifact y editable visualmente.', ex:['/design una landing para el nuevo producto','/design mockups del flujo de onboarding'], q:'Mockups, wireframes, landings, pósters, one-pagers: lo que preferirías ajustar a mano y no en código.'},
+  {n:'/artifact-design', arg:'', a:'', g:['skill'], w:'Fundamentos de diseño para Artifacts.', ex:['/artifact-design'], q:'Se carga sola antes de publicar; invócala si quieres leer las pautas.'},
+  {n:'/artifact-diagramming', arg:'', a:'', g:['skill'], w:'Cómo dibujar diagramas legibles (SVG inline, mermaid) en ambos temas.', ex:['/artifact-diagramming'], q:'Un diagrama va a explicar el mecanismo mejor que el texto.'},
+  {n:'/artifact-capabilities', arg:'', a:'', g:['skill'], w:'Capacidades de runtime: leer datos vivos, recordar lo que hace la gente (encuestas, checklists), estado compartido, preguntar a Claude desde la página, ficheros.', ex:['/artifact-capabilities'], q:'La página tiene que hacer algo más que ser HTML estático.'},
+  {n:'/artifact-components', arg:'', a:'', g:['cond','skill'], w:'Catálogo de componentes reutilizables.', ex:['/artifact-components'], q:'—'},
+  {n:'/plan-artifact', arg:'', a:'', g:['cond','skill'], w:'Publica un plan como Artifact.', ex:['/plan-artifact'], q:'Un plan que va a leer más gente.'},
+  {n:'/prototype', arg:'', a:'', g:['cond','skill'], w:'Prototipa una idea como Artifact funcional.', ex:['/prototype un dashboard de métricas de la cola'], q:'Validar una idea de UI sin montar el proyecto.'},
+  {n:'/whiteboard', arg:'', a:'', g:['cond','skill'], w:'Pizarra compartida: tú dibujas, Claude responde sobre ella.', ex:['/whiteboard'], q:'Diseñar arquitectura en conversación.'},
+  {n:'/workshop', arg:'', a:'', g:['cond','skill'], w:'Documento de trabajo colaborativo como Artifact.', ex:['/workshop'], q:'Documentos que se van editando entre varios.'},
+  {n:'/batch', arg:'', a:'', g:['cond','skill'], w:'Procesamiento por lotes.', ex:['/batch'], q:'—'},
+  {n:'/design-sync', arg:'', a:'', g:['cond','skill'], w:'Sincroniza con tu sistema de diseño.', ex:['/design-sync'], q:'Que los artifacts respeten los tokens de tu marca.'},
+  {n:'/design-login', arg:'', a:'', g:[], w:'Autoriza el acceso al sistema de diseño con tu cuenta claude.ai.', ex:['/design-login'], q:'Requisito de /design-sync.'},
+  {n:'/design consent', arg:' | /design revoke', a:'', g:['cond'], w:'Concede o revoca el acceso del agente a tus proyectos de Design.', ex:['/design revoke'], q:'Retirar permisos.'}
+ ]},
+ {t:'Ayuda y varios', note:'', r:[
+  {n:'/help', arg:' [open]', a:'', g:['core'], w:'Ayuda y <strong>lista real de comandos disponibles ahora</strong>.', ex:['/help'], q:'La fuente de verdad de tu instalación. Esta página es el mapa; /help es el territorio.'},
+  {n:'/powerup', arg:' [nombre]', a:'', g:[], w:'Lecciones interactivas cortas para descubrir funciones.', ex:['/powerup'], q:'Muy recomendable si esta lista te resulta abrumadora: aprendes de a poco.'},
+  {n:'/feedback', arg:' [reporte]', a:'', g:[], w:'Manda feedback a Anthropic o reporta un bug.', ex:['/feedback el autocompletado de rutas falla con espacios'], q:'Algo debería funcionar mejor.'},
+  {n:'/bug', arg:' [reporte]', a:'/share', g:[], w:'Reporta un bug o comparte tu conversación; adjunta el contexto de la sesión automáticamente.', ex:['/bug'], q:'Un fallo reproducible.'},
+  {n:'/radio', arg:'', a:'', g:[], w:'Radio lo-fi de Claude FM.', ex:['/radio'], q:'—'},
+  {n:'/stickers', arg:'', a:'', g:[], w:'Pide pegatinas de Claude Code.', ex:['/stickers'], q:'—'}
+ ]}
+];
+
+const LABEL = {core:'de uso diario', cond:'condicional', skill:'skill', cloud:'nube', warn:'cuidado'};
+const CLS = {core:'t-core', cond:'t-cond', skill:'t-skill', cloud:'t-cloud', warn:'t-warn'};
+
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const strip = h => String(h).replace(/<[^>]+>/g,'');
+
+function rowHTML(r){
+  const tags = r.g.map(g=>'<span class="tag '+CLS[g]+'">'+LABEL[g]+'</span>').join('');
+  const alias = r.a ? '<p class="alias">alias '+r.a+'</p>' : '';
+  const ex = r.ex.length ? '<div class="ex">'+r.ex.map(e=>'<code>'+esc(e)+'</code>').join('')+'</div>' : '';
+  return '<div class="row'+(r.g.includes('core')?' core':'')+'">'
+    + '<div class="c-name"><p class="cmd">'+r.n+'<span class="arg">'+esc(r.arg)+'</span></p>'
+    + (tags?'<div class="tags">'+tags+'</div>':'') + alias + '</div>'
+    + '<div class="c-what"><p class="what">'+r.w+'</p>'+ex+'</div>'
+    + '<div class="c-when"><span class="whenlab">cuándo usarlo</span><p class="when">'+r.q+'</p></div>'
+    + '</div>';
+}
+
+const groupsEl = document.getElementById('groups');
+groupsEl.innerHTML = G.map((g,i)=>
+  '<section class="group" data-g="'+i+'">'
+  + '<div class="ghead"><span class="gnum">'+String(i+1).padStart(2,'0')+'</span><h2>'+g.t+'</h2></div>'
+  + (g.note?'<p class="gnote">'+g.note+'</p>':'')
+  + '<div class="rows">'+g.r.map(rowHTML).join('')+'</div>'
+  + '</section>'
+).join('') + '<div class="empty" id="empty" hidden>Ningún comando coincide. Prueba con menos palabras, o borra los filtros.</div>';
+
+// haystack por fila
+const rowEls = [];
+G.forEach((g,gi)=>{
+  const sec = groupsEl.querySelector('[data-g="'+gi+'"]');
+  const nodes = sec.querySelectorAll('.row');
+  g.r.forEach((r,ri)=>{
+    rowEls.push({el:nodes[ri], sec, tags:r.g,
+      hay:(r.n+' '+r.arg+' '+r.a+' '+strip(r.w)+' '+r.ex.join(' ')+' '+r.q+' '+g.t)
+        .toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')});
+  });
+});
+
+const total = rowEls.length;
+const nOf = t => rowEls.filter(r=>r.tags.includes(t)).length;
+document.getElementById('f-total').textContent = total;
+document.getElementById('f-core').textContent = nOf('core');
+document.getElementById('f-cond').textContent = nOf('cond');
+document.getElementById('f-skill').textContent = nOf('skill');
+
+const qEl = document.getElementById('q');
+const countEl = document.getElementById('count');
+const emptyEl = document.getElementById('empty');
+const extrasEl = document.getElementById('extras');
+const chipEls = [...document.querySelectorAll('.chip')];
+let active = new Set();
+
+function apply(){
+  const q = qEl.value.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  const terms = q ? q.split(/\s+/) : [];
+  let shown = 0;
+  const secHits = new Map();
+  for (const r of rowEls){
+    const okTags = active.size === 0 || [...active].every(t=>r.tags.includes(t));
+    const okText = terms.every(t=>r.hay.includes(t));
+    const on = okTags && okText;
+    r.el.hidden = !on;
+    if (on){ shown++; secHits.set(r.sec, (secHits.get(r.sec)||0)+1); }
+  }
+  groupsEl.querySelectorAll('.group').forEach(s=>{ s.hidden = !secHits.get(s); });
+  emptyEl.hidden = shown > 0;
+  const filtering = terms.length > 0 || active.size > 0;
+  extrasEl.hidden = filtering;
+  countEl.textContent = filtering ? shown+' de '+total : total+' comandos';
+}
+
+
+/* Reveal discreto al entrar en viewport — equivalente a components/ui/Reveal.tsx */
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const targets = [...groupsEl.querySelectorAll('.ghead, .rows > .row'),
+                   ...extrasEl.querySelectorAll('.ghead, .prose')];
+  if (reduce || !('IntersectionObserver' in window)){ targets.forEach(t=>t.classList.add('in')); return; }
+  targets.forEach(t=>t.classList.add('rv'));
+  const io = new IntersectionObserver((entries)=>{
+    for (const e of entries){
+      if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    }
+  }, {rootMargin:'0px 0px -8% 0px', threshold:0.04});
+  targets.forEach(t=>io.observe(t));
+})();
+
+qEl.addEventListener('input', apply);
+chipEls.forEach(c=>c.addEventListener('click',()=>{
+  const f = c.dataset.f;
+  if (active.has(f)) active.delete(f); else active.add(f);
+  c.setAttribute('aria-pressed', active.has(f) ? 'true' : 'false');
+  apply();
+}));
+document.addEventListener('keydown', e=>{
+  if (e.key === '/' && document.activeElement !== qEl){ e.preventDefault(); qEl.focus(); }
+  if (e.key === 'Escape' && document.activeElement === qEl){ qEl.value=''; apply(); qEl.blur(); }
+});
+apply();
+</script>
+</body>
+</html>
