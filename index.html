@@ -344,6 +344,20 @@ a:focus-visible{outline:2px solid var(--brand-40); outline-offset:2px}
   background:rgba(255,255,255,.09); border-radius:5px; padding:2px 6px;
 }
 .colofon .mono{font-family:"Geist Mono",monospace; font-size:11px; line-height:2; color:rgba(255,255,255,.6)}
+.closing a{color:#fff; text-decoration-color:rgba(255,255,255,.45)}
+.closing a:hover{text-decoration-color:#fff}
+.closing a:focus-visible{outline:2px solid #fff; outline-offset:3px}
+.legal{
+  position:relative; z-index:2; display:flex; flex-wrap:wrap; align-items:center;
+  gap:10px 26px; padding:20px 0 40px; border-top:1px solid rgba(255,255,255,.14);
+  font-size:12.5px; color:rgba(255,255,255,.6);
+}
+.legal p{margin:0}
+.legal .contacto{margin-left:auto; display:inline-flex; align-items:center; gap:9px}
+.legal .contacto svg{width:15px; height:15px; opacity:.55; flex:0 0 auto}
+.legal a{color:rgba(255,255,255,.86); text-decoration:underline; text-underline-offset:3px}
+.legal a:hover{color:#fff}
+@media (max-width:640px){ .legal .contacto{margin-left:0} }
 
 /* ---------------- reveal discreto (Reveal.tsx) ---------------- */
 .rv{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease}
@@ -675,6 +689,13 @@ claude --dangerously-skip-permissions    ⚠ solo en sandbox sin red</pre>
       <p class="lab">Alias reconocidos</p>
       <p class="mono">/allowed-tools→/permissions · /android,/ios→/mobile · /app→/desktop · /bashes→/tasks · /bg→/background · /breaks,/downtime→/wellbeing · /checkup→/doctor · /checkpoint,/undo→/rewind · /continue→/resume · /cost,/stats→/usage · /marketplace,/plugins→/plugin · /memory-pause,/toggle-memory→/pause-memory · /name→/rename · /new,/reset→/clear · /peers→/list-agents · /quit→/exit · /rc→/remote-control · /remote→/session · /restart→/update · /routines→/schedule · /settings→/config · /share→/bug · /tp→/teleport</p>
       <p><code>/vim</code> y <code>/output-style</code> se movieron a <code>/config</code>. <code>/agents</code> fue retirado: pide a Claude que gestione los subagentes, o edita <code>.claude/agents/</code>.</p>
+    </div>
+    <div class="legal">
+      <p>&copy; 2026 OA2P Solutions. Todos los derechos reservados.</p>
+      <span class="contacto">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        <a href="mailto:contacto@oa2p-solutions.com">contacto@oa2p-solutions.com</a>
+      </span>
     </div>
   </div>
 </section>
