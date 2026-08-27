@@ -4,7 +4,7 @@ Referencia completa de los comandos `/` de [Claude Code](https://claude.com/clau
 directamente del binario instalado y no de la documentación pública. **132 comandos** con qué hace
 cada uno, cómo se escribe, un ejemplo real y cuándo conviene usarlo.
 
-**→ [Ver la referencia](https://oa2p-solutions.github.io/claude-code-cheatsheet/)**
+**→ [cheatsheet-claude.oa2p-solutions.com](https://cheatsheet-claude.oa2p-solutions.com/)**
 
 ## Por qué existe
 
@@ -60,6 +60,12 @@ las dos versiones autorizadas por el manual de marca: color sobre fondo claro y 
 oscuro.
 
 La página respeta el tema del sistema (claro y oscuro) y `prefers-reduced-motion`.
+
+## Publicación
+
+La página se sirve con GitHub Pages desde la raíz de `main`, con dominio propio
+`cheatsheet-claude.oa2p-solutions.com` (CNAME en Azure DNS, zona `oa2p-solutions.com`,
+grupo de recursos `rg-oa2p-solutions`). Cada `git push` a `main` redespliega.
 
 ## Licencia
 
