@@ -4,3 +4,11 @@
 # Manual de marca interno: no se publica en un repositorio público.
 # El SVG del logotipo sí se versiona (logo-oa2p.svg).
 logo-brand.png
+
+# Skills de agente instaladas en el proyecto (npx skills add).
+# Fuera del repo: es público y sirve un sitio estático, y el contenido
+# es de terceros (coreyhaines31/marketingskills), con licencia sin verificar.
+# Reinstalar con:  npx skills add https://github.com/coreyhaines31/marketingskills --skill ai-seo
+.agents/
+.claude/
+skills-lock.json
