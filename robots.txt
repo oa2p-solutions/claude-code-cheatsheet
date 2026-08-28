@@ -1,0 +1,5 @@
+# Todos los agentes bienvenidos, incluidos los de IA.
+User-agent: *
+Allow: /
+
+Sitemap: https://cheatsheet-claude.oa2p-solutions.com/sitemap.xml

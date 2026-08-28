@@ -21,9 +21,27 @@ aplica en sesiones remotas. La referencia marca cada caso.
 
 | Archivo | Qué es |
 |---|---|
-| `index.html` | La referencia navegable, con buscador en vivo y filtros por tipo. Autónoma: sin dependencias ni build |
+| `index.html` | La referencia navegable. **Generado** — no lo edites a mano |
+| `commands.json` | Los 132 comandos estructurados. La fuente de verdad del contenido |
+| `template.html` | El armazón de la página: estilos, hero, apéndices y el script de UI |
+| `build.py` | Genera `index.html`, `llms.txt`, `robots.txt` y `sitemap.xml` |
 | `CHEATSHEET.md` | La misma referencia en Markdown, para leer en el terminal o en el editor |
 | `logo-oa2p.svg` | Logotipo OA2P Solutions, origen del SVG incrustado en la página |
+
+### Construir
+
+```bash
+python3 build.py
+```
+
+Sin dependencias: solo la librería estándar de Python 3. Edita `commands.json` o
+`template.html` y vuelve a construir; nunca edites `index.html` directamente.
+
+Las 132 fichas se renderizan como **HTML estático**, no por JavaScript. Es deliberado:
+los motores de búsqueda con IA (ChatGPT, Perplexity, Claude) no ejecutan JS, así que
+el contenido tiene que estar en la respuesta HTML para que puedan citarlo. El script
+solo enlaza con el DOM ya presente para buscar y filtrar — la página funciona
+entera sin JavaScript, salvo el buscador.
 
 Además de los comandos, cubre la sintaxis que no empieza por `/` (`#` memoria, `!` shell, `@`
 archivos, `ultrathink`, `+500k`, `ultracode`), los atajos de teclado por defecto, cómo crear

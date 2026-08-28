@@ -1,0 +1,1720 @@
+[
+ {
+  "t": "Sesión y contexto",
+  "note": "Lo que decides varias veces al día: cuándo empezar limpio, cuándo resumir y cuándo deshacer.",
+  "r": [
+   {
+    "n": "/clear",
+    "arg": " [nombre]",
+    "a": "/reset · /new",
+    "g": [
+     "core"
+    ],
+    "w": "Nueva sesión con contexto vacío. La anterior <strong>queda en disco</strong> y se recupera con /resume.",
+    "ex": [
+     "/clear",
+     "/clear refactor-auth"
+    ],
+    "q": "Al cambiar de tarea. Es la opción por defecto: más barato y más fiable que arrastrar contexto irrelevante."
+   },
+   {
+    "n": "/compact",
+    "arg": " [instrucciones]",
+    "a": "",
+    "g": [
+     "core"
+    ],
+    "w": "Resume la conversación hasta aquí para liberar contexto, <strong>sin perder el hilo</strong>.",
+    "ex": [
+     "/compact",
+     "/compact conserva los nombres de archivo y el esquema, olvida la exploración"
+    ],
+    "q": "Estás en medio de una tarea larga y el contexto se llena. Con instrucciones explícitas el resumen es mucho mejor."
+   },
+   {
+    "n": "/autocompact",
+    "arg": " [auto|tokens]",
+    "a": "",
+    "g": [],
+    "w": "Configura a qué nivel de llenado se auto-resume la conversación.",
+    "ex": [
+     "/autocompact auto",
+     "/autocompact 400k"
+    ],
+    "q": "Si el auto-compact te corta demasiado pronto, súbelo. Si prefieres compactar antes para tener respuestas más rápidas, bájalo."
+   },
+   {
+    "n": "/context",
+    "arg": " [all]",
+    "a": "",
+    "g": [
+     "core"
+    ],
+    "w": "Cuadrícula de colores con el uso de contexto por categoría.",
+    "ex": [
+     "/context",
+     "/context all"
+    ],
+    "q": "Antes de empezar algo grande, o cuando notas que responde peor. Te dice si el problema es el contexto lleno o son las skills y los MCP comiéndoselo."
+   },
+   {
+    "n": "/resume",
+    "arg": " [id o texto]",
+    "a": "/continue",
+    "g": [
+     "core"
+    ],
+    "w": "Reanuda una conversación anterior; busca por texto libre.",
+    "ex": [
+     "/resume",
+     "/resume migración prisma"
+    ],
+    "q": "Retomar el trabajo de ayer sin re-explicar nada."
+   },
+   {
+    "n": "/rewind",
+    "arg": "",
+    "a": "/checkpoint · /undo",
+    "g": [
+     "core",
+     "warn"
+    ],
+    "w": "Restaura <strong>el código y/o la conversación</strong> a un punto anterior. Es el ctrl+Z real: revierte archivos, no solo el chat.",
+    "ex": [
+     "/rewind"
+    ],
+    "q": "Claude hizo cambios que no querías. Puedes elegir revertir solo código, solo conversación, o ambos."
+   },
+   {
+    "n": "/branch",
+    "arg": " [nombre]",
+    "a": "",
+    "g": [],
+    "w": "Crea una rama de la conversación en este punto. La original sigue intacta.",
+    "ex": [
+     "/branch probar-con-redis"
+    ],
+    "q": "Quieres explorar una alternativa sin perder el hilo actual."
+   },
+   {
+    "n": "/fork",
+    "arg": " [prompt]",
+    "a": "",
+    "g": [
+     "cloud"
+    ],
+    "w": "Copia la conversación a una sesión en background y tú sigues aquí.",
+    "ex": [
+     "/fork escribe los tests de todo lo que acabamos de tocar"
+    ],
+    "q": "Delegar la parte mecánica con el contexto completo mientras tú avanzas en otra cosa."
+   },
+   {
+    "n": "/subtask",
+    "arg": " <tarea>",
+    "a": "",
+    "g": [],
+    "w": "Manda un subagente con tu contexto completo; el resultado vuelve a este chat.",
+    "ex": [
+     "/subtask audita todos los usos de fetch() y dime cuáles no manejan errores"
+    ],
+    "q": "Trabajo de lectura pesado cuyo resultado quieres aquí, pero cuyo ruido no quieres en tu contexto."
+   },
+   {
+    "n": "/btw",
+    "arg": " [pregunta]",
+    "a": "",
+    "g": [
+     "cond"
+    ],
+    "w": "Pregunta lateral rápida <strong>sin interrumpir</strong> la conversación principal.",
+    "ex": [
+     "/btw qué hace exactamente git restore --staged"
+    ],
+    "q": "Duda tangencial a mitad de una tarea; no contamina el hilo."
+   },
+   {
+    "n": "/recap",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Genera un resumen de una línea de la sesión.",
+    "ex": [
+     "/recap"
+    ],
+    "q": "Antes de cerrar, para dejar rastro de en qué ibas."
+   },
+   {
+    "n": "/export",
+    "arg": " [archivo]",
+    "a": "",
+    "g": [],
+    "w": "Exporta la conversación a un archivo o al portapapeles.",
+    "ex": [
+     "/export",
+     "/export debug-sesion.md"
+    ],
+    "q": "Compartir el razonamiento con un compañero o adjuntarlo a un ticket."
+   },
+   {
+    "n": "/copy",
+    "arg": " [N]",
+    "a": "",
+    "g": [],
+    "w": "Copia la última respuesta al portapapeles, o la N-ésima más reciente.",
+    "ex": [
+     "/copy",
+     "/copy 3"
+    ],
+    "q": "Pegar un bloque de código o una explicación en Slack o Jira."
+   },
+   {
+    "n": "/rename",
+    "arg": " [nombre]",
+    "a": "/name",
+    "g": [],
+    "w": "Renombra la conversación.",
+    "ex": [
+     "/rename fix-login-safari"
+    ],
+    "q": "Para encontrarla luego con /resume."
+   },
+   {
+    "n": "/focus",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Vista enfocada: solo tu prompt, el resumen y la respuesta.",
+    "ex": [
+     "/focus"
+    ],
+    "q": "Sesiones muy largas donde el ruido de las herramientas te distrae."
+   },
+   {
+    "n": "/brief",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond"
+    ],
+    "w": "Modo brief-only: respuestas mínimas.",
+    "ex": [
+     "/brief"
+    ],
+    "q": "Tareas mecánicas donde no quieres explicaciones."
+   },
+   {
+    "n": "/diff",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Panel de cambios sin commitear y diffs por turno.",
+    "ex": [
+     "/diff"
+    ],
+    "q": "Revisar qué tocó Claude antes de aceptar o commitear."
+   },
+   {
+    "n": "/pause-memory",
+    "arg": "",
+    "a": "/memory-pause · /toggle-memory",
+    "g": [],
+    "w": "Pausa la automemoria en esta sesión.",
+    "ex": [
+     "/pause-memory"
+    ],
+    "q": "Trabajo exploratorio o desechable que no quieres que se recuerde."
+   },
+   {
+    "n": "/stop",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond",
+     "cloud"
+    ],
+    "w": "Detiene esta sesión de background; se conservan transcript y worktree.",
+    "ex": [
+     "/stop"
+    ],
+    "q": "Solo aparece dentro de una sesión en background."
+   }
+  ]
+ },
+ {
+  "t": "Modelo, esfuerzo y planificación",
+  "note": "Aquí se decide la relación entre calidad, velocidad y coste. Revisa el gasto con /usage.",
+  "r": [
+   {
+    "n": "/model",
+    "arg": " [modelo]",
+    "a": "",
+    "g": [
+     "core"
+    ],
+    "w": "Fija el modelo de la sesión.",
+    "ex": [
+     "/model",
+     "/model opus",
+     "/model claude-sonnet-5"
+    ],
+    "q": "Opus para diseño y depuración difícil; Sonnet para volumen; Haiku para tareas mecánicas."
+   },
+   {
+    "n": "/effort",
+    "arg": " [nivel]",
+    "a": "",
+    "g": [
+     "core"
+    ],
+    "w": "Nivel de razonamiento: <code>low</code>, <code>medium</code>, <code>high</code>, <code>xhigh</code>, <code>max</code>.",
+    "ex": [
+     "/effort high",
+     "/effort low"
+    ],
+    "q": "Sube a high o max en bugs de concurrencia y decisiones de arquitectura; baja a low en renombrados y formateos: más rápido y más barato."
+   },
+   {
+    "n": "/fast",
+    "arg": " [on|off]",
+    "a": "",
+    "g": [],
+    "w": "Modo rápido: <strong>el mismo Opus</strong> con salida más rápida, no degrada a un modelo menor.",
+    "ex": [
+     "/fast on"
+    ],
+    "q": "Iteración conversacional donde la latencia molesta más que la profundidad."
+   },
+   {
+    "n": "/advisor",
+    "arg": " [modelo|off]",
+    "a": "",
+    "g": [
+     "cond"
+    ],
+    "w": "Deja que Claude consulte un modelo más fuerte en los momentos clave.",
+    "ex": [
+     "/advisor"
+    ],
+    "q": "Sesión larga con un modelo rápido donde quieres una segunda opinión solo en las decisiones importantes."
+   },
+   {
+    "n": "/plan",
+    "arg": " [open|share|desc]",
+    "a": "",
+    "g": [
+     "core"
+    ],
+    "w": "Activa plan mode o muestra el plan de la sesión. También con <kbd>Shift</kbd>+<kbd>Tab</kbd>.",
+    "ex": [
+     "/plan",
+     "/plan migrar el módulo de pagos a Stripe v3",
+     "/plan share"
+    ],
+    "q": "Antes de cualquier cambio no trivial. En plan mode Claude investiga y propone, sin escribir."
+   },
+   {
+    "n": "/goal",
+    "arg": " [condición|clear]",
+    "a": "",
+    "g": [],
+    "w": "Fija un objetivo que Claude comprueba <strong>antes de parar</strong>.",
+    "ex": [
+     "/goal los tests de integración pasan en verde",
+     "/goal clear"
+    ],
+    "q": "Tarea con criterio de éxito verificable y varios intentos previsibles. Evita el \"¿sigo?\" cada dos minutos."
+   },
+   {
+    "n": "/ultraplan",
+    "arg": " <prompt>",
+    "a": "",
+    "g": [
+     "cond",
+     "cloud"
+    ],
+    "w": "Claude Code en la web redacta un plan editable que puedes aprobar o traer de vuelta.",
+    "ex": [
+     "/ultraplan rediseñar el sistema de colas"
+    ],
+    "q": "Planificación grande que quieres revisar con calma y compartir. Corre en la nube y tú sigues trabajando."
+   },
+   {
+    "n": "/ultrareview",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond",
+     "cloud"
+    ],
+    "w": "Busca y <strong>verifica</strong> bugs de tu rama en la nube.",
+    "ex": [
+     "/ultrareview"
+    ],
+    "q": "Antes de un PR importante. Más exhaustivo que /code-review local."
+   }
+  ]
+ },
+ {
+  "t": "Configuración, permisos y hooks",
+  "note": "La inversión con mejor retorno del día: dejar de aprobar lo mismo veinte veces.",
+  "r": [
+   {
+    "n": "/config",
+    "arg": " [key=value]",
+    "a": "/settings",
+    "g": [
+     "core"
+    ],
+    "w": "Abre los ajustes, o fija uno directamente. Aquí viven el editor mode (antes /vim), el output style y el tamaño de los workflows.",
+    "ex": [
+     "/config",
+     "/config theme=dark"
+    ],
+    "q": "Punto de entrada a casi todo."
+   },
+   {
+    "n": "/permissions",
+    "arg": " [open|share|desc]",
+    "a": "/allowed-tools",
+    "g": [
+     "core"
+    ],
+    "w": "Gestiona reglas allow y deny de herramientas. <code>share</code> genera reglas para el equipo.",
+    "ex": [
+     "/permissions",
+     "/permissions permite npm test y npm run lint"
+    ],
+    "q": "Cuando te cansas de aprobar lo mismo."
+   },
+   {
+    "n": "/hooks",
+    "arg": " [nombre]",
+    "a": "",
+    "g": [],
+    "w": "Ver la configuración de hooks por evento.",
+    "ex": [
+     "/hooks"
+    ],
+    "q": "Diagnosticar por qué algo se dispara automáticamente, o por qué no lo hace."
+   },
+   {
+    "n": "/update-config",
+    "arg": "",
+    "a": "",
+    "g": [
+     "skill"
+    ],
+    "w": "Skill que <strong>edita settings.json por ti</strong>: hooks, permisos, variables de entorno.",
+    "ex": [
+     "/update-config cuando termines un turno, ejecuta npm run lint",
+     "/update-config permite todos los comandos bq"
+    ],
+    "q": "Automatizaciones del tipo \"cada vez que X, haz Y\". Eso requiere un hook, y esta skill lo escribe bien."
+   },
+   {
+    "n": "/fewer-permission-prompts",
+    "arg": "",
+    "a": "",
+    "g": [
+     "skill"
+    ],
+    "w": "Analiza tus transcripts y propone una allowlist priorizada en .claude/settings.json.",
+    "ex": [
+     "/fewer-permission-prompts"
+    ],
+    "q": "Si apruebas permisos todo el día. Automatiza lo que harías a mano con /permissions."
+   },
+   {
+    "n": "/sandbox",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond"
+    ],
+    "w": "Estado y configuración del sandbox de ejecución.",
+    "ex": [
+     "/sandbox"
+    ],
+    "q": "Verificar si los comandos corren aislados antes de dar permisos amplios."
+   },
+   {
+    "n": "/statusline",
+    "arg": "",
+    "a": "",
+    "g": [
+     "skill"
+    ],
+    "w": "Configura la línea de estado: crea el script y lo escribe en settings.",
+    "ex": [
+     "/statusline muestra la rama de git y el modelo"
+    ],
+    "q": "Ver rama, modelo o contexto sin ejecutar comandos."
+   },
+   {
+    "n": "/keybindings",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Abre tu archivo de atajos: ~/.claude/keybindings.json.",
+    "ex": [
+     "/keybindings"
+    ],
+    "q": "Rebindear teclas."
+   },
+   {
+    "n": "/keybindings-help",
+    "arg": "",
+    "a": "",
+    "g": [
+     "skill"
+    ],
+    "w": "Ayuda guiada para escribir atajos, incluidos los chords.",
+    "ex": [
+     "/keybindings-help quiero ctrl+s para stash"
+    ],
+    "q": "Cuando no sabes la sintaxis del JSON."
+   },
+   {
+    "n": "/theme",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Cambia el tema de colores.",
+    "ex": [
+     "/theme"
+    ],
+    "q": "—"
+   },
+   {
+    "n": "/tui",
+    "arg": " [default|fullscreen]",
+    "a": "",
+    "g": [],
+    "w": "Renderer de la interfaz de terminal.",
+    "ex": [
+     "/tui fullscreen"
+    ],
+    "q": "fullscreen da una experiencia tipo aplicación; default respeta el scroll del terminal."
+   },
+   {
+    "n": "/color",
+    "arg": " [color|default]",
+    "a": "",
+    "g": [],
+    "w": "Color de la barra de prompt <strong>de esta sesión</strong>.",
+    "ex": [
+     "/color red"
+    ],
+    "q": "Distinguir de un vistazo varias terminales abiertas: prod contra local."
+   },
+   {
+    "n": "/scroll-speed",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Velocidad de la rueda del ratón.",
+    "ex": [
+     "/scroll-speed"
+    ],
+    "q": "—"
+   },
+   {
+    "n": "/terminal-setup",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Configura tu terminal, por ejemplo Option+Enter para saltos de línea.",
+    "ex": [
+     "/terminal-setup"
+    ],
+    "q": "Recién instalado, si Shift+Enter no funciona."
+   },
+   {
+    "n": "/voice",
+    "arg": " [hold|tap|off]",
+    "a": "",
+    "g": [],
+    "w": "Activa o desactiva el modo voz; se habla pulsando <kbd>Espacio</kbd>.",
+    "ex": [
+     "/voice tap",
+     "/voice off"
+    ],
+    "q": "Dictar prompts largos en lugar de teclearlos."
+   },
+   {
+    "n": "/wellbeing",
+    "arg": "",
+    "a": "/breaks · /downtime",
+    "g": [],
+    "w": "Recordatorios de descanso y horas de silencio.",
+    "ex": [
+     "/wellbeing"
+    ],
+    "q": "Sesiones maratonianas."
+   },
+   {
+    "n": "/privacy-settings",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Ver y actualizar tus ajustes de privacidad.",
+    "ex": [
+     "/privacy-settings"
+    ],
+    "q": "Antes de trabajar con código sensible."
+   },
+   {
+    "n": "/auto-mode-setup",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond"
+    ],
+    "w": "Enseña al auto mode cómo es tu entorno y ajusta reglas.",
+    "ex": [
+     "/auto-mode-setup"
+    ],
+    "q": "Solo si usas auto mode."
+   }
+  ]
+ },
+ {
+  "t": "Proyecto, memoria y directorios",
+  "note": "",
+  "r": [
+   {
+    "n": "/init",
+    "arg": "",
+    "a": "",
+    "g": [
+     "core",
+     "skill"
+    ],
+    "w": "Crea un CLAUDE.md documentando el codebase y, según versión, skills y hooks opcionales.",
+    "ex": [
+     "/init"
+    ],
+    "q": "Primer comando en un repo nuevo. Evita re-explicar la arquitectura en cada sesión."
+   },
+   {
+    "n": "/memory",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Edita los CLAUDE.md y los ajustes de memoria.",
+    "ex": [
+     "/memory"
+    ],
+    "q": "Añadir convenciones del proyecto: \"usamos pnpm\", \"no toques /legacy\"."
+   },
+   {
+    "n": "/add-dir",
+    "arg": " <ruta>",
+    "a": "",
+    "g": [],
+    "w": "Añade otro directorio de trabajo a la sesión.",
+    "ex": [
+     "/add-dir ../shared-types",
+     "/add-dir ~/Developments/api"
+    ],
+    "q": "Monorepos o cambios que cruzan dos repos. Sin esto, Claude no puede leer fuera del cwd."
+   },
+   {
+    "n": "/cd",
+    "arg": " <ruta>",
+    "a": "",
+    "g": [],
+    "w": "Mueve la sesión a otro directorio de trabajo.",
+    "ex": [
+     "/cd packages/web"
+    ],
+    "q": "Cambiar de subproyecto conservando la conversación."
+   },
+   {
+    "n": "/insights",
+    "arg": "",
+    "a": "",
+    "g": [
+     "skill"
+    ],
+    "w": "Informe analizando tus sesiones de Claude Code.",
+    "ex": [
+     "/insights"
+    ],
+    "q": "Retro personal: en qué gastas tiempo y tokens."
+   },
+   {
+    "n": "/team-onboarding",
+    "arg": "",
+    "a": "",
+    "g": [
+     "skill"
+    ],
+    "w": "Genera una guía de onboarding a partir de tu uso real.",
+    "ex": [
+     "/team-onboarding"
+    ],
+    "q": "Cuando entra gente nueva al equipo."
+   },
+   {
+    "n": "/import",
+    "arg": " [codex|gemini] [--dry-run]",
+    "a": "",
+    "g": [],
+    "w": "Importa configuración de otro agente de código.",
+    "ex": [
+     "/import codex --dry-run",
+     "/import gemini"
+    ],
+    "q": "Migras desde otra herramienta. Usa siempre --dry-run primero."
+   }
+  ]
+ },
+ {
+  "t": "Skills, plugins, MCP y agentes",
+  "note": "Cada skill cargada consume contexto. La rutina para recuperarlo es /context → /skill-doctor → /config.",
+  "r": [
+   {
+    "n": "/skills",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Lista las skills disponibles.",
+    "ex": [
+     "/skills"
+    ],
+    "q": "Descubrir qué comandos-skill tienes activos ahora mismo."
+   },
+   {
+    "n": "/skill-doctor",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Muestra qué skills cargadas <strong>no se usan y te están costando contexto</strong>.",
+    "ex": [
+     "/skill-doctor"
+    ],
+    "q": "Cuando /context dice que las skills ocupan mucho. Te dice cuáles apagar."
+   },
+   {
+    "n": "/reload-skills",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond"
+    ],
+    "w": "Recoge skills añadidas o modificadas en disco durante la sesión.",
+    "ex": [
+     "/reload-skills"
+    ],
+    "q": "Estás escribiendo una skill y no quieres reiniciar."
+   },
+   {
+    "n": "/plugin",
+    "arg": "",
+    "a": "/plugins · /marketplace",
+    "g": [],
+    "w": "Gestiona plugins: instalar, activar, marketplaces.",
+    "ex": [
+     "/plugin"
+    ],
+    "q": "Añadir capacidades: GitHub, Prisma, Context7, security-guidance."
+   },
+   {
+    "n": "/reload-plugins",
+    "arg": " [--force]",
+    "a": "",
+    "g": [],
+    "w": "Activa cambios de plugins pendientes en la sesión actual.",
+    "ex": [
+     "/reload-plugins"
+    ],
+    "q": "Tras instalar un plugin, para no reiniciar."
+   },
+   {
+    "n": "/cloud-plugins",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Decide si las sesiones en la nube usan los plugins de esta máquina.",
+    "ex": [
+     "/cloud-plugins"
+    ],
+    "q": "Antes de usar /teleport o /schedule."
+   },
+   {
+    "n": "/plugin-types",
+    "arg": " [dir]",
+    "a": "",
+    "g": [],
+    "w": "Escribe claude-code-mcp.d.ts con los tipos de entrada de las tools MCP conectadas.",
+    "ex": [
+     "/plugin-types"
+    ],
+    "q": "Desarrollas un plugin y quieres tipado real de las tools MCP."
+   },
+   {
+    "n": "/mcp",
+    "arg": " [reconnect|enable|disable]",
+    "a": "",
+    "g": [
+     "core"
+    ],
+    "w": "Gestiona servidores MCP.",
+    "ex": [
+     "/mcp",
+     "/mcp reconnect github",
+     "/mcp disable all"
+    ],
+    "q": "Un servidor MCP falla, pide auth, o quieres apagar los que no usas para ahorrar contexto."
+   },
+   {
+    "n": "/list-agents",
+    "arg": "",
+    "a": "/peers",
+    "g": [],
+    "w": "Lista subagentes, compañeros y otras sesiones de Claude a las que puedes mandar mensajes.",
+    "ex": [
+     "/list-agents"
+    ],
+    "q": "Antes de coordinar trabajo entre sesiones."
+   },
+   {
+    "n": "/agents",
+    "arg": "",
+    "a": "",
+    "g": [
+     "warn"
+    ],
+    "w": "<strong>Retirado.</strong> Pide a Claude que cree o gestione subagentes, o edita .claude/agents/.",
+    "ex": [],
+    "q": "Usa lenguaje natural o edita los ficheros directamente."
+   },
+   {
+    "n": "/run-skill-generator",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond",
+     "skill"
+    ],
+    "w": "Asistente para generar una skill nueva.",
+    "ex": [
+     "/run-skill-generator"
+    ],
+    "q": "Crear una skill bien estructurada sin partir de cero."
+   }
+  ]
+ },
+ {
+  "t": "Background, nube y automatización",
+  "note": "",
+  "r": [
+   {
+    "n": "/tasks",
+    "arg": "",
+    "a": "/bashes",
+    "g": [
+     "core",
+     "cloud"
+    ],
+    "w": "Ve y gestiona <strong>todo</strong> lo que corre en background: procesos, subagentes, workflows y loops. Aquí también los detienes.",
+    "ex": [
+     "/tasks"
+    ],
+    "q": "Cuando has lanzado algo y no sabes si sigue vivo."
+   },
+   {
+    "n": "/background",
+    "arg": " [prompt]",
+    "a": "/bg",
+    "g": [
+     "cloud"
+    ],
+    "w": "Manda esta sesión al background y libera la terminal.",
+    "ex": [
+     "/background sigue con la migración y avísame"
+    ],
+    "q": "Tarea larga que no necesita supervisión."
+   },
+   {
+    "n": "/workflows",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cloud"
+    ],
+    "w": "Explora workflows en curso y completados.",
+    "ex": [
+     "/workflows"
+    ],
+    "q": "Seguir el progreso de una orquestación multiagente."
+   },
+   {
+    "n": "/loop",
+    "arg": " <intervalo> <prompt>",
+    "a": "",
+    "g": [
+     "skill"
+    ],
+    "w": "Repite un prompt o comando en un intervalo. <strong>Sin intervalo, el modelo se autorregula.</strong>",
+    "ex": [
+     "/loop 5m /tasks",
+     "/loop 10m comprueba si el deploy terminó",
+     "/loop vigila el PR y arregla lo que falle"
+    ],
+    "q": "Vigilar CI, un deploy, una cola. No lo uses para tareas de una sola vez."
+   },
+   {
+    "n": "/loops",
+    "arg": " [nombre]",
+    "a": "",
+    "g": [],
+    "w": "Lista, crea y borra loops.",
+    "ex": [
+     "/loops"
+    ],
+    "q": "Ver qué loops tienes vivos y matarlos."
+   },
+   {
+    "n": "/schedule",
+    "arg": "",
+    "a": "/routines",
+    "g": [
+     "skill",
+     "cloud"
+    ],
+    "w": "Crea y gestiona <strong>agentes en la nube con cron</strong>.",
+    "ex": [
+     "/schedule cada lunes a las 9 revisa los PRs abiertos",
+     "/schedule mañana a las 15h recuérdame verificar el rollback"
+    ],
+    "q": "Tareas recurrentes, o de una sola vez programadas, que corren aunque tengas el portátil cerrado."
+   },
+   {
+    "n": "/daemon",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Gestiona servicios en background y routines.",
+    "ex": [
+     "/daemon"
+    ],
+    "q": "Diagnosticar por qué una routine no se dispara."
+   },
+   {
+    "n": "/teleport",
+    "arg": "",
+    "a": "/tp",
+    "g": [
+     "cloud"
+    ],
+    "w": "Manda esta sesión a la nube, o recupera una de claude.ai.",
+    "ex": [
+     "/teleport"
+    ],
+    "q": "Seguir en otro sitio, o soltar una tarea larga y cerrar el portátil."
+   },
+   {
+    "n": "/session",
+    "arg": "",
+    "a": "/remote",
+    "g": [
+     "cond",
+     "cloud"
+    ],
+    "w": "Muestra la URL y el QR de la sesión en la nube.",
+    "ex": [
+     "/session"
+    ],
+    "q": "Abrir la sesión remota en el móvil."
+   },
+   {
+    "n": "/remote-control",
+    "arg": "",
+    "a": "/rc",
+    "g": [
+     "cloud"
+    ],
+    "w": "Controla esta sesión desde el móvil o claude.ai/code.",
+    "ex": [
+     "/remote-control"
+    ],
+    "q": "Lanzas algo largo y quieres supervisarlo desde el teléfono."
+   },
+   {
+    "n": "/remote-env",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond",
+     "cloud"
+    ],
+    "w": "Elige el entorno por defecto de los agentes de nube.",
+    "ex": [
+     "/remote-env"
+    ],
+    "q": "Entornos self-hosted (ccpool_...)."
+   },
+   {
+    "n": "/autofix-pr",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond",
+     "cloud"
+    ],
+    "w": "Vigila el PR actual y arregla lo que falle.",
+    "ex": [
+     "/autofix-pr"
+    ],
+    "q": "CI rojo en un PR y no quieres estar mirando."
+   },
+   {
+    "n": "/workflow-launch-exec",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond",
+     "warn"
+    ],
+    "w": "Interno: ejecuta un handoff de workflow lanzado por el servidor.",
+    "ex": [],
+    "q": "No lo invoques a mano."
+   }
+  ]
+ },
+ {
+  "t": "Git, PRs y calidad de código",
+  "note": "Casi todos requieren estar dentro de un repositorio git. Si no aparecen, es por eso.",
+  "r": [
+   {
+    "n": "/commit",
+    "arg": " [guía]",
+    "a": "",
+    "g": [
+     "core",
+     "skill"
+    ],
+    "w": "Prepara y crea un commit: recoge el contexto de git y aplica el estilo de mensaje, las reglas de staging y la atribución.",
+    "ex": [
+     "/commit",
+     "/commit separa el refactor del fix en dos commits"
+    ],
+    "q": "Siempre que vayas a commitear. Recoge el diff completo y escribe mejor mensaje que a mano."
+   },
+   {
+    "n": "/pr",
+    "arg": "",
+    "a": "",
+    "g": [
+     "skill"
+    ],
+    "w": "Commit, push y abre el pull request.",
+    "ex": [
+     "/pr"
+    ],
+    "q": "Cerrar el trabajo de una rama de un tirón."
+   },
+   {
+    "n": "/code-review",
+    "arg": " [objetivo] [nivel] [--comment|--fix]",
+    "a": "",
+    "g": [
+     "core",
+     "skill"
+    ],
+    "w": "Revisa el diff actual, un PR, una rama o una ruta, buscando <strong>bugs</strong> y limpiezas.",
+    "ex": [
+     "/code-review",
+     "/code-review high",
+     "/code-review 1423 --comment",
+     "/code-review --fix"
+    ],
+    "q": "Antes de pedir revisión humana. low y medium dan pocos hallazgos de alta confianza; high y max amplían cobertura con hallazgos más inciertos. --comment los publica inline en el PR; --fix los aplica al working tree."
+   },
+   {
+    "n": "/simplify",
+    "arg": "",
+    "a": "",
+    "g": [
+     "skill"
+    ],
+    "w": "Limpia el código cambiado (reutilización, simplificación, eficiencia) <strong>y aplica los arreglos</strong>. No busca bugs.",
+    "ex": [
+     "/simplify"
+    ],
+    "q": "Justo después de que algo funcione, antes del commit. Para bugs, /code-review."
+   },
+   {
+    "n": "/security-review",
+    "arg": "",
+    "a": "",
+    "g": [
+     "skill"
+    ],
+    "w": "Revisión de seguridad de los cambios pendientes de la rama.",
+    "ex": [
+     "/security-review"
+    ],
+    "q": "Antes de mergear código que toca auth, entrada de usuario, secretos o dependencias."
+   },
+   {
+    "n": "/run",
+    "arg": "",
+    "a": "",
+    "g": [
+     "skill"
+    ],
+    "w": "Arranca y conduce la app del proyecto para <strong>ver el cambio funcionando</strong>.",
+    "ex": [
+     "/run",
+     "/run abre la pantalla de login y hazme una captura"
+    ],
+    "q": "Confirmar que algo funciona de verdad, no solo que los tests pasan."
+   },
+   {
+    "n": "/debug",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond",
+     "skill"
+    ],
+    "w": "Flujo guiado de depuración.",
+    "ex": [
+     "/debug el login falla solo en Safari"
+    ],
+    "q": "Bug reproducible pero de causa desconocida."
+   }
+  ]
+ },
+ {
+  "t": "Cuenta, uso, versiones y diagnóstico",
+  "note": "",
+  "r": [
+   {
+    "n": "/doctor",
+    "arg": "",
+    "a": "/checkup",
+    "g": [
+     "core"
+    ],
+    "w": "Chequea y <strong>arregla</strong> tu setup: instalación, extensiones sin usar, CLAUDE.md duplicados o hinchados, hooks lentos, actualizaciones, permisos.",
+    "ex": [
+     "/doctor"
+    ],
+    "q": "Primer comando ante cualquier rareza. También cada pocas semanas como mantenimiento."
+   },
+   {
+    "n": "/status",
+    "arg": "",
+    "a": "",
+    "g": [
+     "core"
+    ],
+    "w": "Estado: versión, modelo, cuenta, conectividad de API y estado de las tools.",
+    "ex": [
+     "/status"
+    ],
+    "q": "\"¿Estoy en el modelo que creo? ¿Está el MCP conectado?\""
+   },
+   {
+    "n": "/usage",
+    "arg": "",
+    "a": "/cost · /stats",
+    "g": [
+     "core"
+    ],
+    "w": "Coste de la sesión, uso del plan y qué está consumiendo tus límites.",
+    "ex": [
+     "/usage"
+    ],
+    "q": "Antes de lanzar algo caro, o cuando te acercas al límite."
+   },
+   {
+    "n": "/explain-usage",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond",
+     "skill"
+    ],
+    "w": "Explica en lenguaje natural por qué has gastado lo que has gastado.",
+    "ex": [
+     "/explain-usage"
+    ],
+    "q": "El número de /usage te sorprende."
+   },
+   {
+    "n": "/usage-credits",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond"
+    ],
+    "w": "Configura créditos de uso o pídelos a tu admin al llegar al límite. Antes se llamaba /extra-usage.",
+    "ex": [
+     "/usage-credits"
+    ],
+    "q": "Límite alcanzado y necesitas seguir."
+   },
+   {
+    "n": "/upgrade",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond"
+    ],
+    "w": "Subir a Max: más límite y más Opus.",
+    "ex": [
+     "/upgrade"
+    ],
+    "q": "Chocas con los límites a diario."
+   },
+   {
+    "n": "/passes",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond"
+    ],
+    "w": "Comparte una semana gratis de Claude Code y gana créditos.",
+    "ex": [
+     "/passes"
+    ],
+    "q": "Si eres elegible."
+   },
+   {
+    "n": "/rate-limit-options",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond"
+    ],
+    "w": "Opciones al alcanzar el límite.",
+    "ex": [],
+    "q": "Aparece solo automáticamente."
+   },
+   {
+    "n": "/login",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Inicia sesión o <strong>cambia de cuenta</strong> de Anthropic.",
+    "ex": [
+     "/login"
+    ],
+    "q": "Alternar cuenta personal y de empresa."
+   },
+   {
+    "n": "/logout",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Cierra la sesión de tu cuenta.",
+    "ex": [
+     "/logout"
+    ],
+    "q": "Máquina compartida."
+   },
+   {
+    "n": "/version",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Versión que <strong>está corriendo esta sesión</strong>; el autoupdate puede tener otra más nueva descargada.",
+    "ex": [
+     "/version"
+    ],
+    "q": "Reportar un bug con precisión."
+   },
+   {
+    "n": "/update",
+    "arg": "",
+    "a": "/restart",
+    "g": [],
+    "w": "Cambia a la última versión; la conversación continúa.",
+    "ex": [
+     "/update"
+    ],
+    "q": "Hay versión nueva y quieres el fix ya."
+   },
+   {
+    "n": "/install",
+    "arg": " [options]",
+    "a": "",
+    "g": [],
+    "w": "Instala la build nativa de Claude Code.",
+    "ex": [
+     "/install"
+    ],
+    "q": "Migrar de la instalación npm a la nativa."
+   },
+   {
+    "n": "/release-notes",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Notas de la versión.",
+    "ex": [
+     "/release-notes"
+    ],
+    "q": "Tras un /update, para ver qué cambió."
+   },
+   {
+    "n": "/exit",
+    "arg": "",
+    "a": "/quit",
+    "g": [],
+    "w": "Sale del CLI. En una sesión de background se <strong>desacopla</strong> y ésta sigue corriendo.",
+    "ex": [
+     "/exit"
+    ],
+    "q": "—"
+   },
+   {
+    "n": "/heapdump",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond",
+     "warn"
+    ],
+    "w": "Volcado del heap de JS a ~/Desktop.",
+    "ex": [
+     "/heapdump"
+    ],
+    "q": "Solo para reportar fugas de memoria a Anthropic."
+   }
+  ]
+ },
+ {
+  "t": "Integraciones y setup",
+  "note": "",
+  "r": [
+   {
+    "n": "/ide",
+    "arg": " [open]",
+    "a": "",
+    "g": [],
+    "w": "Gestiona integraciones con IDE y muestra su estado.",
+    "ex": [
+     "/ide"
+    ],
+    "q": "VS Code o JetBrains no se conecta."
+   },
+   {
+    "n": "/chrome",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Ajustes de Claude en Chrome.",
+    "ex": [
+     "/chrome"
+    ],
+    "q": "Automatizar el navegador. Hay que dar permisos por sitio en la extensión."
+   },
+   {
+    "n": "/claude-in-chrome",
+    "arg": "",
+    "a": "",
+    "g": [
+     "skill"
+    ],
+    "w": "Skill que conduce Chrome: clics, formularios, capturas, consola, red.",
+    "ex": [
+     "/claude-in-chrome comprueba si el formulario de alta lanza errores en consola"
+    ],
+    "q": "Depurar front-end en el navegador real, no en tests."
+   },
+   {
+    "n": "/desktop",
+    "arg": "",
+    "a": "/app",
+    "g": [],
+    "w": "Continúa la sesión en Claude Desktop.",
+    "ex": [
+     "/desktop"
+    ],
+    "q": "Pasar de terminal a app de escritorio."
+   },
+   {
+    "n": "/mobile",
+    "arg": "",
+    "a": "/ios · /android",
+    "g": [],
+    "w": "QR para descargar la app móvil.",
+    "ex": [
+     "/mobile"
+    ],
+    "q": "—"
+   },
+   {
+    "n": "/web-setup",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Configura Claude Code en la web con tu cuenta de GitHub.",
+    "ex": [
+     "/web-setup"
+    ],
+    "q": "Requisito para /ultraplan, /ultrareview y /teleport."
+   },
+   {
+    "n": "/install-github-app",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Configura Claude GitHub Actions en un repositorio.",
+    "ex": [
+     "/install-github-app"
+    ],
+    "q": "Quieres que Claude revise PRs automáticamente en CI."
+   },
+   {
+    "n": "/install-slack-app",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond"
+    ],
+    "w": "Instala la app de Claude para Slack.",
+    "ex": [
+     "/install-slack-app"
+    ],
+    "q": "Invocar a Claude desde Slack."
+   },
+   {
+    "n": "/setup-bedrock",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Reconfigura autenticación, región o pins de modelo de Amazon Bedrock.",
+    "ex": [
+     "/setup-bedrock"
+    ],
+    "q": "Empresa con Bedrock."
+   },
+   {
+    "n": "/setup-vertex",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Reconfigura autenticación, proyecto, región o pins de Google Vertex AI.",
+    "ex": [
+     "/setup-vertex"
+    ],
+    "q": "Empresa con Vertex."
+   },
+   {
+    "n": "/setup-cowork",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond",
+     "skill"
+    ],
+    "w": "Configuración de trabajo colaborativo.",
+    "ex": [
+     "/setup-cowork"
+    ],
+    "q": "—"
+   },
+   {
+    "n": "/claude-api",
+    "arg": "",
+    "a": "",
+    "g": [
+     "skill"
+    ],
+    "w": "Referencia de la Claude API y el SDK: IDs de modelo, precios, streaming, tool use, MCP, caching, tokens.",
+    "ex": [
+     "/claude-api cuánto cuesta Opus 5 con prompt caching"
+    ],
+    "q": "Antes de escribir cualquier código que llame a la API. Los precios e IDs de memoria suelen estar desfasados."
+   }
+  ]
+ },
+ {
+  "t": "Artifacts, diseño y visualización",
+  "note": "Los Artifacts son páginas web privadas publicadas en claude.ai que puedes compartir. Todos estos comandos son skills.",
+  "r": [
+   {
+    "n": "/artifacts",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Explora tus artifacts publicados y los compartidos contigo.",
+    "ex": [
+     "/artifacts"
+    ],
+    "q": "Recuperar el enlace de algo publicado hace días."
+   },
+   {
+    "n": "/dataviz",
+    "arg": "",
+    "a": "",
+    "g": [
+     "core",
+     "skill"
+    ],
+    "w": "Guía de diseño para <strong>cualquier</strong> gráfico, dashboard o visualización, en cualquier medio: HTML, SVG, matplotlib, Recharts, d3.",
+    "ex": [
+     "/dataviz"
+    ],
+    "q": "Antes de escribir la primera línea de código de un gráfico. Paletas accesibles, elección de tipo de gráfico, ejes, leyendas, light y dark."
+   },
+   {
+    "n": "/design",
+    "arg": "",
+    "a": "",
+    "g": [
+     "skill"
+    ],
+    "w": "Crea un design canvas: diseño multi-artboard publicado como Artifact y editable visualmente.",
+    "ex": [
+     "/design una landing para el nuevo producto",
+     "/design mockups del flujo de onboarding"
+    ],
+    "q": "Mockups, wireframes, landings, pósters, one-pagers: lo que preferirías ajustar a mano y no en código."
+   },
+   {
+    "n": "/artifact-design",
+    "arg": "",
+    "a": "",
+    "g": [
+     "skill"
+    ],
+    "w": "Fundamentos de diseño para Artifacts.",
+    "ex": [
+     "/artifact-design"
+    ],
+    "q": "Se carga sola antes de publicar; invócala si quieres leer las pautas."
+   },
+   {
+    "n": "/artifact-diagramming",
+    "arg": "",
+    "a": "",
+    "g": [
+     "skill"
+    ],
+    "w": "Cómo dibujar diagramas legibles (SVG inline, mermaid) en ambos temas.",
+    "ex": [
+     "/artifact-diagramming"
+    ],
+    "q": "Un diagrama va a explicar el mecanismo mejor que el texto."
+   },
+   {
+    "n": "/artifact-capabilities",
+    "arg": "",
+    "a": "",
+    "g": [
+     "skill"
+    ],
+    "w": "Capacidades de runtime: leer datos vivos, recordar lo que hace la gente (encuestas, checklists), estado compartido, preguntar a Claude desde la página, ficheros.",
+    "ex": [
+     "/artifact-capabilities"
+    ],
+    "q": "La página tiene que hacer algo más que ser HTML estático."
+   },
+   {
+    "n": "/artifact-components",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond",
+     "skill"
+    ],
+    "w": "Catálogo de componentes reutilizables.",
+    "ex": [
+     "/artifact-components"
+    ],
+    "q": "—"
+   },
+   {
+    "n": "/plan-artifact",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond",
+     "skill"
+    ],
+    "w": "Publica un plan como Artifact.",
+    "ex": [
+     "/plan-artifact"
+    ],
+    "q": "Un plan que va a leer más gente."
+   },
+   {
+    "n": "/prototype",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond",
+     "skill"
+    ],
+    "w": "Prototipa una idea como Artifact funcional.",
+    "ex": [
+     "/prototype un dashboard de métricas de la cola"
+    ],
+    "q": "Validar una idea de UI sin montar el proyecto."
+   },
+   {
+    "n": "/whiteboard",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond",
+     "skill"
+    ],
+    "w": "Pizarra compartida: tú dibujas, Claude responde sobre ella.",
+    "ex": [
+     "/whiteboard"
+    ],
+    "q": "Diseñar arquitectura en conversación."
+   },
+   {
+    "n": "/workshop",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond",
+     "skill"
+    ],
+    "w": "Documento de trabajo colaborativo como Artifact.",
+    "ex": [
+     "/workshop"
+    ],
+    "q": "Documentos que se van editando entre varios."
+   },
+   {
+    "n": "/batch",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond",
+     "skill"
+    ],
+    "w": "Procesamiento por lotes.",
+    "ex": [
+     "/batch"
+    ],
+    "q": "—"
+   },
+   {
+    "n": "/design-sync",
+    "arg": "",
+    "a": "",
+    "g": [
+     "cond",
+     "skill"
+    ],
+    "w": "Sincroniza con tu sistema de diseño.",
+    "ex": [
+     "/design-sync"
+    ],
+    "q": "Que los artifacts respeten los tokens de tu marca."
+   },
+   {
+    "n": "/design-login",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Autoriza el acceso al sistema de diseño con tu cuenta claude.ai.",
+    "ex": [
+     "/design-login"
+    ],
+    "q": "Requisito de /design-sync."
+   },
+   {
+    "n": "/design consent",
+    "arg": " | /design revoke",
+    "a": "",
+    "g": [
+     "cond"
+    ],
+    "w": "Concede o revoca el acceso del agente a tus proyectos de Design.",
+    "ex": [
+     "/design revoke"
+    ],
+    "q": "Retirar permisos."
+   }
+  ]
+ },
+ {
+  "t": "Ayuda y varios",
+  "note": "",
+  "r": [
+   {
+    "n": "/help",
+    "arg": " [open]",
+    "a": "",
+    "g": [
+     "core"
+    ],
+    "w": "Ayuda y <strong>lista real de comandos disponibles ahora</strong>.",
+    "ex": [
+     "/help"
+    ],
+    "q": "La fuente de verdad de tu instalación. Esta página es el mapa; /help es el territorio."
+   },
+   {
+    "n": "/powerup",
+    "arg": " [nombre]",
+    "a": "",
+    "g": [],
+    "w": "Lecciones interactivas cortas para descubrir funciones.",
+    "ex": [
+     "/powerup"
+    ],
+    "q": "Muy recomendable si esta lista te resulta abrumadora: aprendes de a poco."
+   },
+   {
+    "n": "/feedback",
+    "arg": " [reporte]",
+    "a": "",
+    "g": [],
+    "w": "Manda feedback a Anthropic o reporta un bug.",
+    "ex": [
+     "/feedback el autocompletado de rutas falla con espacios"
+    ],
+    "q": "Algo debería funcionar mejor."
+   },
+   {
+    "n": "/bug",
+    "arg": " [reporte]",
+    "a": "/share",
+    "g": [],
+    "w": "Reporta un bug o comparte tu conversación; adjunta el contexto de la sesión automáticamente.",
+    "ex": [
+     "/bug"
+    ],
+    "q": "Un fallo reproducible."
+   },
+   {
+    "n": "/radio",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Radio lo-fi de Claude FM.",
+    "ex": [
+     "/radio"
+    ],
+    "q": "—"
+   },
+   {
+    "n": "/stickers",
+    "arg": "",
+    "a": "",
+    "g": [],
+    "w": "Pide pegatinas de Claude Code.",
+    "ex": [
+     "/stickers"
+    ],
+    "q": "—"
+   }
+  ]
+ }
+]

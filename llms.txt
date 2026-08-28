@@ -1,0 +1,178 @@
+# Comandos slash de Claude Code
+
+> Referencia de los 132 comandos slash de Claude Code, extraídos de las definiciones del binario 2.1.247 y no de la documentación pública. Cada comando incluye descripción, alias, argumentos, un ejemplo real y cuándo conviene usarlo. Publicada por OA2P Solutions.
+
+Cubre además la sintaxis que no empieza por `/` (`#` memoria, `!` shell, `@` archivos, `ultrathink`, `+500k`, `ultracode`), los atajos de teclado, cómo crear comandos propios con su frontmatter, los eventos de hook y los flags del CLI.
+
+## Recursos
+
+- [Referencia completa en Markdown](https://cheatsheet-claude.oa2p-solutions.com/CHEATSHEET.md): el documento entero, 43 KB
+- [Datos en JSON](https://cheatsheet-claude.oa2p-solutions.com/commands.json): los 132 comandos estructurados
+- [Página web](https://cheatsheet-claude.oa2p-solutions.com/): la misma referencia con buscador
+
+## Comandos por categoría
+
+### Sesión y contexto
+
+- `/clear [nombre]` (alias: /reset · /new): Nueva sesión con contexto vacío. La anterior queda en disco y se recupera con /resume. Cuándo: Al cambiar de tarea. Es la opción por defecto: más barato y más fiable que arrastrar contexto irrelevante.
+- `/compact [instrucciones]`: Resume la conversación hasta aquí para liberar contexto, sin perder el hilo. Cuándo: Estás en medio de una tarea larga y el contexto se llena. Con instrucciones explícitas el resumen es mucho mejor.
+- `/autocompact [auto|tokens]`: Configura a qué nivel de llenado se auto-resume la conversación. Cuándo: Si el auto-compact te corta demasiado pronto, súbelo. Si prefieres compactar antes para tener respuestas más rápidas, bájalo.
+- `/context [all]`: Cuadrícula de colores con el uso de contexto por categoría. Cuándo: Antes de empezar algo grande, o cuando notas que responde peor. Te dice si el problema es el contexto lleno o son las skills y los MCP comiéndoselo.
+- `/resume [id o texto]` (alias: /continue): Reanuda una conversación anterior; busca por texto libre. Cuándo: Retomar el trabajo de ayer sin re-explicar nada.
+- `/rewind` (alias: /checkpoint · /undo): Restaura el código y/o la conversación a un punto anterior. Es el ctrl+Z real: revierte archivos, no solo el chat. Cuándo: Claude hizo cambios que no querías. Puedes elegir revertir solo código, solo conversación, o ambos.
+- `/branch [nombre]`: Crea una rama de la conversación en este punto. La original sigue intacta. Cuándo: Quieres explorar una alternativa sin perder el hilo actual.
+- `/fork [prompt]`: Copia la conversación a una sesión en background y tú sigues aquí. Cuándo: Delegar la parte mecánica con el contexto completo mientras tú avanzas en otra cosa.
+- `/subtask <tarea>`: Manda un subagente con tu contexto completo; el resultado vuelve a este chat. Cuándo: Trabajo de lectura pesado cuyo resultado quieres aquí, pero cuyo ruido no quieres en tu contexto.
+- `/btw [pregunta]`: Pregunta lateral rápida sin interrumpir la conversación principal. Cuándo: Duda tangencial a mitad de una tarea; no contamina el hilo.
+- `/recap`: Genera un resumen de una línea de la sesión. Cuándo: Antes de cerrar, para dejar rastro de en qué ibas.
+- `/export [archivo]`: Exporta la conversación a un archivo o al portapapeles. Cuándo: Compartir el razonamiento con un compañero o adjuntarlo a un ticket.
+- `/copy [N]`: Copia la última respuesta al portapapeles, o la N-ésima más reciente. Cuándo: Pegar un bloque de código o una explicación en Slack o Jira.
+- `/rename [nombre]` (alias: /name): Renombra la conversación. Cuándo: Para encontrarla luego con /resume.
+- `/focus`: Vista enfocada: solo tu prompt, el resumen y la respuesta. Cuándo: Sesiones muy largas donde el ruido de las herramientas te distrae.
+- `/brief`: Modo brief-only: respuestas mínimas. Cuándo: Tareas mecánicas donde no quieres explicaciones.
+- `/diff`: Panel de cambios sin commitear y diffs por turno. Cuándo: Revisar qué tocó Claude antes de aceptar o commitear.
+- `/pause-memory` (alias: /memory-pause · /toggle-memory): Pausa la automemoria en esta sesión. Cuándo: Trabajo exploratorio o desechable que no quieres que se recuerde.
+- `/stop`: Detiene esta sesión de background; se conservan transcript y worktree. Cuándo: Solo aparece dentro de una sesión en background.
+
+### Modelo, esfuerzo y planificación
+
+- `/model [modelo]`: Fija el modelo de la sesión. Cuándo: Opus para diseño y depuración difícil; Sonnet para volumen; Haiku para tareas mecánicas.
+- `/effort [nivel]`: Nivel de razonamiento: low, medium, high, xhigh, max. Cuándo: Sube a high o max en bugs de concurrencia y decisiones de arquitectura; baja a low en renombrados y formateos: más rápido y más barato.
+- `/fast [on|off]`: Modo rápido: el mismo Opus con salida más rápida, no degrada a un modelo menor. Cuándo: Iteración conversacional donde la latencia molesta más que la profundidad.
+- `/advisor [modelo|off]`: Deja que Claude consulte un modelo más fuerte en los momentos clave. Cuándo: Sesión larga con un modelo rápido donde quieres una segunda opinión solo en las decisiones importantes.
+- `/plan [open|share|desc]`: Activa plan mode o muestra el plan de la sesión. También con Shift+Tab. Cuándo: Antes de cualquier cambio no trivial. En plan mode Claude investiga y propone, sin escribir.
+- `/goal [condición|clear]`: Fija un objetivo que Claude comprueba antes de parar. Cuándo: Tarea con criterio de éxito verificable y varios intentos previsibles. Evita el "¿sigo?" cada dos minutos.
+- `/ultraplan <prompt>`: Claude Code en la web redacta un plan editable que puedes aprobar o traer de vuelta. Cuándo: Planificación grande que quieres revisar con calma y compartir. Corre en la nube y tú sigues trabajando.
+- `/ultrareview`: Busca y verifica bugs de tu rama en la nube. Cuándo: Antes de un PR importante. Más exhaustivo que /code-review local.
+
+### Configuración, permisos y hooks
+
+- `/config [key=value]` (alias: /settings): Abre los ajustes, o fija uno directamente. Aquí viven el editor mode (antes /vim), el output style y el tamaño de los workflows. Cuándo: Punto de entrada a casi todo.
+- `/permissions [open|share|desc]` (alias: /allowed-tools): Gestiona reglas allow y deny de herramientas. share genera reglas para el equipo. Cuándo: Cuando te cansas de aprobar lo mismo.
+- `/hooks [nombre]`: Ver la configuración de hooks por evento. Cuándo: Diagnosticar por qué algo se dispara automáticamente, o por qué no lo hace.
+- `/update-config`: Skill que edita settings.json por ti: hooks, permisos, variables de entorno. Cuándo: Automatizaciones del tipo "cada vez que X, haz Y". Eso requiere un hook, y esta skill lo escribe bien.
+- `/fewer-permission-prompts`: Analiza tus transcripts y propone una allowlist priorizada en .claude/settings.json. Cuándo: Si apruebas permisos todo el día. Automatiza lo que harías a mano con /permissions.
+- `/sandbox`: Estado y configuración del sandbox de ejecución. Cuándo: Verificar si los comandos corren aislados antes de dar permisos amplios.
+- `/statusline`: Configura la línea de estado: crea el script y lo escribe en settings. Cuándo: Ver rama, modelo o contexto sin ejecutar comandos.
+- `/keybindings`: Abre tu archivo de atajos: ~/.claude/keybindings.json. Cuándo: Rebindear teclas.
+- `/keybindings-help`: Ayuda guiada para escribir atajos, incluidos los chords. Cuándo: Cuando no sabes la sintaxis del JSON.
+- `/theme`: Cambia el tema de colores. Cuándo: —
+- `/tui [default|fullscreen]`: Renderer de la interfaz de terminal. Cuándo: fullscreen da una experiencia tipo aplicación; default respeta el scroll del terminal.
+- `/color [color|default]`: Color de la barra de prompt de esta sesión. Cuándo: Distinguir de un vistazo varias terminales abiertas: prod contra local.
+- `/scroll-speed`: Velocidad de la rueda del ratón. Cuándo: —
+- `/terminal-setup`: Configura tu terminal, por ejemplo Option+Enter para saltos de línea. Cuándo: Recién instalado, si Shift+Enter no funciona.
+- `/voice [hold|tap|off]`: Activa o desactiva el modo voz; se habla pulsando Espacio. Cuándo: Dictar prompts largos en lugar de teclearlos.
+- `/wellbeing` (alias: /breaks · /downtime): Recordatorios de descanso y horas de silencio. Cuándo: Sesiones maratonianas.
+- `/privacy-settings`: Ver y actualizar tus ajustes de privacidad. Cuándo: Antes de trabajar con código sensible.
+- `/auto-mode-setup`: Enseña al auto mode cómo es tu entorno y ajusta reglas. Cuándo: Solo si usas auto mode.
+
+### Proyecto, memoria y directorios
+
+- `/init`: Crea un CLAUDE.md documentando el codebase y, según versión, skills y hooks opcionales. Cuándo: Primer comando en un repo nuevo. Evita re-explicar la arquitectura en cada sesión.
+- `/memory`: Edita los CLAUDE.md y los ajustes de memoria. Cuándo: Añadir convenciones del proyecto: "usamos pnpm", "no toques /legacy".
+- `/add-dir <ruta>`: Añade otro directorio de trabajo a la sesión. Cuándo: Monorepos o cambios que cruzan dos repos. Sin esto, Claude no puede leer fuera del cwd.
+- `/cd <ruta>`: Mueve la sesión a otro directorio de trabajo. Cuándo: Cambiar de subproyecto conservando la conversación.
+- `/insights`: Informe analizando tus sesiones de Claude Code. Cuándo: Retro personal: en qué gastas tiempo y tokens.
+- `/team-onboarding`: Genera una guía de onboarding a partir de tu uso real. Cuándo: Cuando entra gente nueva al equipo.
+- `/import [codex|gemini] [--dry-run]`: Importa configuración de otro agente de código. Cuándo: Migras desde otra herramienta. Usa siempre --dry-run primero.
+
+### Skills, plugins, MCP y agentes
+
+- `/skills`: Lista las skills disponibles. Cuándo: Descubrir qué comandos-skill tienes activos ahora mismo.
+- `/skill-doctor`: Muestra qué skills cargadas no se usan y te están costando contexto. Cuándo: Cuando /context dice que las skills ocupan mucho. Te dice cuáles apagar.
+- `/reload-skills`: Recoge skills añadidas o modificadas en disco durante la sesión. Cuándo: Estás escribiendo una skill y no quieres reiniciar.
+- `/plugin` (alias: /plugins · /marketplace): Gestiona plugins: instalar, activar, marketplaces. Cuándo: Añadir capacidades: GitHub, Prisma, Context7, security-guidance.
+- `/reload-plugins [--force]`: Activa cambios de plugins pendientes en la sesión actual. Cuándo: Tras instalar un plugin, para no reiniciar.
+- `/cloud-plugins`: Decide si las sesiones en la nube usan los plugins de esta máquina. Cuándo: Antes de usar /teleport o /schedule.
+- `/plugin-types [dir]`: Escribe claude-code-mcp.d.ts con los tipos de entrada de las tools MCP conectadas. Cuándo: Desarrollas un plugin y quieres tipado real de las tools MCP.
+- `/mcp [reconnect|enable|disable]`: Gestiona servidores MCP. Cuándo: Un servidor MCP falla, pide auth, o quieres apagar los que no usas para ahorrar contexto.
+- `/list-agents` (alias: /peers): Lista subagentes, compañeros y otras sesiones de Claude a las que puedes mandar mensajes. Cuándo: Antes de coordinar trabajo entre sesiones.
+- `/agents`: Retirado. Pide a Claude que cree o gestione subagentes, o edita .claude/agents/. Cuándo: Usa lenguaje natural o edita los ficheros directamente.
+- `/run-skill-generator`: Asistente para generar una skill nueva. Cuándo: Crear una skill bien estructurada sin partir de cero.
+
+### Background, nube y automatización
+
+- `/tasks` (alias: /bashes): Ve y gestiona todo lo que corre en background: procesos, subagentes, workflows y loops. Aquí también los detienes. Cuándo: Cuando has lanzado algo y no sabes si sigue vivo.
+- `/background [prompt]` (alias: /bg): Manda esta sesión al background y libera la terminal. Cuándo: Tarea larga que no necesita supervisión.
+- `/workflows`: Explora workflows en curso y completados. Cuándo: Seguir el progreso de una orquestación multiagente.
+- `/loop <intervalo> <prompt>`: Repite un prompt o comando en un intervalo. Sin intervalo, el modelo se autorregula. Cuándo: Vigilar CI, un deploy, una cola. No lo uses para tareas de una sola vez.
+- `/loops [nombre]`: Lista, crea y borra loops. Cuándo: Ver qué loops tienes vivos y matarlos.
+- `/schedule` (alias: /routines): Crea y gestiona agentes en la nube con cron. Cuándo: Tareas recurrentes, o de una sola vez programadas, que corren aunque tengas el portátil cerrado.
+- `/daemon`: Gestiona servicios en background y routines. Cuándo: Diagnosticar por qué una routine no se dispara.
+- `/teleport` (alias: /tp): Manda esta sesión a la nube, o recupera una de claude.ai. Cuándo: Seguir en otro sitio, o soltar una tarea larga y cerrar el portátil.
+- `/session` (alias: /remote): Muestra la URL y el QR de la sesión en la nube. Cuándo: Abrir la sesión remota en el móvil.
+- `/remote-control` (alias: /rc): Controla esta sesión desde el móvil o claude.ai/code. Cuándo: Lanzas algo largo y quieres supervisarlo desde el teléfono.
+- `/remote-env`: Elige el entorno por defecto de los agentes de nube. Cuándo: Entornos self-hosted (ccpool_...).
+- `/autofix-pr`: Vigila el PR actual y arregla lo que falle. Cuándo: CI rojo en un PR y no quieres estar mirando.
+- `/workflow-launch-exec`: Interno: ejecuta un handoff de workflow lanzado por el servidor. Cuándo: No lo invoques a mano.
+
+### Git, PRs y calidad de código
+
+- `/commit [guía]`: Prepara y crea un commit: recoge el contexto de git y aplica el estilo de mensaje, las reglas de staging y la atribución. Cuándo: Siempre que vayas a commitear. Recoge el diff completo y escribe mejor mensaje que a mano.
+- `/pr`: Commit, push y abre el pull request. Cuándo: Cerrar el trabajo de una rama de un tirón.
+- `/code-review [objetivo] [nivel] [--comment|--fix]`: Revisa el diff actual, un PR, una rama o una ruta, buscando bugs y limpiezas. Cuándo: Antes de pedir revisión humana. low y medium dan pocos hallazgos de alta confianza; high y max amplían cobertura con hallazgos más inciertos. --comment los publica inline en el PR; --fix los aplica al working tree.
+- `/simplify`: Limpia el código cambiado (reutilización, simplificación, eficiencia) y aplica los arreglos. No busca bugs. Cuándo: Justo después de que algo funcione, antes del commit. Para bugs, /code-review.
+- `/security-review`: Revisión de seguridad de los cambios pendientes de la rama. Cuándo: Antes de mergear código que toca auth, entrada de usuario, secretos o dependencias.
+- `/run`: Arranca y conduce la app del proyecto para ver el cambio funcionando. Cuándo: Confirmar que algo funciona de verdad, no solo que los tests pasan.
+- `/debug`: Flujo guiado de depuración. Cuándo: Bug reproducible pero de causa desconocida.
+
+### Cuenta, uso, versiones y diagnóstico
+
+- `/doctor` (alias: /checkup): Chequea y arregla tu setup: instalación, extensiones sin usar, CLAUDE.md duplicados o hinchados, hooks lentos, actualizaciones, permisos. Cuándo: Primer comando ante cualquier rareza. También cada pocas semanas como mantenimiento.
+- `/status`: Estado: versión, modelo, cuenta, conectividad de API y estado de las tools. Cuándo: "¿Estoy en el modelo que creo? ¿Está el MCP conectado?"
+- `/usage` (alias: /cost · /stats): Coste de la sesión, uso del plan y qué está consumiendo tus límites. Cuándo: Antes de lanzar algo caro, o cuando te acercas al límite.
+- `/explain-usage`: Explica en lenguaje natural por qué has gastado lo que has gastado. Cuándo: El número de /usage te sorprende.
+- `/usage-credits`: Configura créditos de uso o pídelos a tu admin al llegar al límite. Antes se llamaba /extra-usage. Cuándo: Límite alcanzado y necesitas seguir.
+- `/upgrade`: Subir a Max: más límite y más Opus. Cuándo: Chocas con los límites a diario.
+- `/passes`: Comparte una semana gratis de Claude Code y gana créditos. Cuándo: Si eres elegible.
+- `/rate-limit-options`: Opciones al alcanzar el límite. Cuándo: Aparece solo automáticamente.
+- `/login`: Inicia sesión o cambia de cuenta de Anthropic. Cuándo: Alternar cuenta personal y de empresa.
+- `/logout`: Cierra la sesión de tu cuenta. Cuándo: Máquina compartida.
+- `/version`: Versión que está corriendo esta sesión; el autoupdate puede tener otra más nueva descargada. Cuándo: Reportar un bug con precisión.
+- `/update` (alias: /restart): Cambia a la última versión; la conversación continúa. Cuándo: Hay versión nueva y quieres el fix ya.
+- `/install [options]`: Instala la build nativa de Claude Code. Cuándo: Migrar de la instalación npm a la nativa.
+- `/release-notes`: Notas de la versión. Cuándo: Tras un /update, para ver qué cambió.
+- `/exit` (alias: /quit): Sale del CLI. En una sesión de background se desacopla y ésta sigue corriendo. Cuándo: —
+- `/heapdump`: Volcado del heap de JS a ~/Desktop. Cuándo: Solo para reportar fugas de memoria a Anthropic.
+
+### Integraciones y setup
+
+- `/ide [open]`: Gestiona integraciones con IDE y muestra su estado. Cuándo: VS Code o JetBrains no se conecta.
+- `/chrome`: Ajustes de Claude en Chrome. Cuándo: Automatizar el navegador. Hay que dar permisos por sitio en la extensión.
+- `/claude-in-chrome`: Skill que conduce Chrome: clics, formularios, capturas, consola, red. Cuándo: Depurar front-end en el navegador real, no en tests.
+- `/desktop` (alias: /app): Continúa la sesión en Claude Desktop. Cuándo: Pasar de terminal a app de escritorio.
+- `/mobile` (alias: /ios · /android): QR para descargar la app móvil. Cuándo: —
+- `/web-setup`: Configura Claude Code en la web con tu cuenta de GitHub. Cuándo: Requisito para /ultraplan, /ultrareview y /teleport.
+- `/install-github-app`: Configura Claude GitHub Actions en un repositorio. Cuándo: Quieres que Claude revise PRs automáticamente en CI.
+- `/install-slack-app`: Instala la app de Claude para Slack. Cuándo: Invocar a Claude desde Slack.
+- `/setup-bedrock`: Reconfigura autenticación, región o pins de modelo de Amazon Bedrock. Cuándo: Empresa con Bedrock.
+- `/setup-vertex`: Reconfigura autenticación, proyecto, región o pins de Google Vertex AI. Cuándo: Empresa con Vertex.
+- `/setup-cowork`: Configuración de trabajo colaborativo. Cuándo: —
+- `/claude-api`: Referencia de la Claude API y el SDK: IDs de modelo, precios, streaming, tool use, MCP, caching, tokens. Cuándo: Antes de escribir cualquier código que llame a la API. Los precios e IDs de memoria suelen estar desfasados.
+
+### Artifacts, diseño y visualización
+
+- `/artifacts`: Explora tus artifacts publicados y los compartidos contigo. Cuándo: Recuperar el enlace de algo publicado hace días.
+- `/dataviz`: Guía de diseño para cualquier gráfico, dashboard o visualización, en cualquier medio: HTML, SVG, matplotlib, Recharts, d3. Cuándo: Antes de escribir la primera línea de código de un gráfico. Paletas accesibles, elección de tipo de gráfico, ejes, leyendas, light y dark.
+- `/design`: Crea un design canvas: diseño multi-artboard publicado como Artifact y editable visualmente. Cuándo: Mockups, wireframes, landings, pósters, one-pagers: lo que preferirías ajustar a mano y no en código.
+- `/artifact-design`: Fundamentos de diseño para Artifacts. Cuándo: Se carga sola antes de publicar; invócala si quieres leer las pautas.
+- `/artifact-diagramming`: Cómo dibujar diagramas legibles (SVG inline, mermaid) en ambos temas. Cuándo: Un diagrama va a explicar el mecanismo mejor que el texto.
+- `/artifact-capabilities`: Capacidades de runtime: leer datos vivos, recordar lo que hace la gente (encuestas, checklists), estado compartido, preguntar a Claude desde la página, ficheros. Cuándo: La página tiene que hacer algo más que ser HTML estático.
+- `/artifact-components`: Catálogo de componentes reutilizables. Cuándo: —
+- `/plan-artifact`: Publica un plan como Artifact. Cuándo: Un plan que va a leer más gente.
+- `/prototype`: Prototipa una idea como Artifact funcional. Cuándo: Validar una idea de UI sin montar el proyecto.
+- `/whiteboard`: Pizarra compartida: tú dibujas, Claude responde sobre ella. Cuándo: Diseñar arquitectura en conversación.
+- `/workshop`: Documento de trabajo colaborativo como Artifact. Cuándo: Documentos que se van editando entre varios.
+- `/batch`: Procesamiento por lotes. Cuándo: —
+- `/design-sync`: Sincroniza con tu sistema de diseño. Cuándo: Que los artifacts respeten los tokens de tu marca.
+- `/design-login`: Autoriza el acceso al sistema de diseño con tu cuenta claude.ai. Cuándo: Requisito de /design-sync.
+- `/design consent | /design revoke`: Concede o revoca el acceso del agente a tus proyectos de Design. Cuándo: Retirar permisos.
+
+### Ayuda y varios
+
+- `/help [open]`: Ayuda y lista real de comandos disponibles ahora. Cuándo: La fuente de verdad de tu instalación. Esta página es el mapa; /help es el territorio.
+- `/powerup [nombre]`: Lecciones interactivas cortas para descubrir funciones. Cuándo: Muy recomendable si esta lista te resulta abrumadora: aprendes de a poco.
+- `/feedback [reporte]`: Manda feedback a Anthropic o reporta un bug. Cuándo: Algo debería funcionar mejor.
+- `/bug [reporte]` (alias: /share): Reporta un bug o comparte tu conversación; adjunta el contexto de la sesión automáticamente. Cuándo: Un fallo reproducible.
+- `/radio`: Radio lo-fi de Claude FM. Cuándo: —
+- `/stickers`: Pide pegatinas de Claude Code. Cuándo: —
