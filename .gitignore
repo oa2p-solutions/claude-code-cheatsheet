@@ -12,3 +12,7 @@ logo-brand.png
 .agents/
 .claude/
 skills-lock.json
+
+# Artefactos de las validaciones con Playwright
+.playwright-mcp/
+*.playwright.png
